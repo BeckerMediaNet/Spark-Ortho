@@ -1,0 +1,103 @@
+@import '../bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+/**
+IF YOU NEED TO IMPORT OTHER MODULES
+YOU MAY NEED TO COPY THEIR NODE_MODULE
+SCSS CONTENTS INTO THIS FILE
+ */
+
+.swiper {
+  //
+  .swiper-wrapper {
+    align-items: center;
+  }
+}
+
+.swiper-button-prev, .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //color: var(--bs-dark);
+  //font-size: 1.5rem;
+  //background-color: rgba(0, 0, 0, 0.5);
+  //border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  //opacity: 0;
+  //visibility: hidden;
+
+  &:hover, &:focus {
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+  }
+
+  svg {
+    min-width: 3rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.swiper-button-prev {
+  left: 0;
+  //content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-compact-left' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z'/%3E%3C/svg%3E");
+
+  @include media-breakpoint-up(md) {
+    transform: translateX(-100%);
+  }
+}
+
+.swiper-button-next {
+  right: 0;
+  //content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-compact-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M6.776 1.553a.5.5 0 0 0-.223.67L9.44 8l-2.888 5.776a.5.5 0 1 0 .894.448l3-6a.5.5 0 0 0 0-.448l-3-6a.5.5 0 0 0-.67-.223z'/%3E%3C/svg%3E");
+
+  @include media-breakpoint-up(md) {
+    transform: translateX(100%);
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  //overflow: hidden;
+  gap: 5px;
+  margin-top: 1rem;
+
+  .swiper-pagination-bullet {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 25px;
+    height: 3px;
+    background-color: var(--bs-gray-300);
+
+    &-active {
+      background-color: var(--bs-primary);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after { // accessibility interaction spacing
+      content: "";
+      display: block;
+      height: 22px;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+      top: -9px;
+    }
+  }
+}
+
+.swiper-notification {
+  @include visually-hidden;
+}

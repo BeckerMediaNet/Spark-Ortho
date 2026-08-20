@@ -1,0 +1,68 @@
+button { // Implemented for tracking so GTM reports button clicks and not child elements
+  * {
+    pointer-events: none;
+  }
+}
+
+.has-custom-font-size {
+  > .btn {
+    font-size: inherit;
+  }
+}
+
+.btn {
+  --btn-arrow-icon: url(escape-svg("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{$primary}' class='bi bi-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8'/%3E%3C/svg%3E"));
+
+  &.btn-arrow {
+    color: var(--bs-link-color);
+    position: relative;
+    padding-left: 0;
+
+    > svg {
+      content: var(--btn-arrow-icon);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.4s cubic-bezier(0.72, 0, 0.12, 1) 0s;
+      width: 18px;
+      backface-visibility: hidden;
+    }
+
+    &:hover, &:focus, &:active {
+      color: var(--bs-link-hover-color);
+      text-decoration: 1px underline dashed;
+
+      > svg {
+        transform: translateY(-50%) translateX(5px);
+      }
+    }
+  }
+}
+
+
+.btn-close.btn-light {
+  filter: inherit;
+}
+
+[data-bs-theme="light"] {
+  .btn {
+    --btn-arrow-icon: url(escape-svg("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{$primary}' class='bi bi-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8'/%3E%3C/svg%3E"));
+  }
+}
+
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+[class*="wp-block-button__width"] > .btn {
+  display: block;
+}
+
+[data-bs-theme="dark"] {
+  .btn {
+    --btn-arrow-icon: url(escape-svg("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{$light}' class='bi bi-arrow-right' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8'/%3E%3C/svg%3E"));
+  }
+}

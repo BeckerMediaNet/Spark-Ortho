@@ -1,0 +1,112 @@
+{
+  "key": "group_lvlmarquee_block",
+  "title": "Block - Logo Marquee",
+  "fields": [
+    {
+      "key": "field_lvlmarquee_logos",
+      "label": "Logos",
+      "name": "logos",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "Upload the logos to scroll. They'll be shown in this order, repeating in a seamless loop.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Logo",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_lvlmarquee_logo_image",
+          "label": "Logo Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_lvlmarquee_logo_link",
+          "label": "Logo Link",
+          "name": "link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "Optional link for this logo",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_lvlmarquee_speed",
+      "label": "Scroll Speed",
+      "name": "speed",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "Seconds for one full loop. Lower = faster scroll.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 30,
+      "min": 5,
+      "max": 90,
+      "allow_in_bindings": 1,
+      "step": 1,
+      "prepend": "",
+      "append": "s"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/logo-marquee"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1784229121
+}

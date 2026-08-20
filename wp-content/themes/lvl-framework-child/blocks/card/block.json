@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/card",
+	"title": "Card",
+	"version": "1.0.0",
+	"description": "Card to be used in the Cards block",
+	"category": "lvl-blocks",
+	"parent": [
+		"lvl/cards-wrapper"
+	],
+	"keywords": [
+		"cards",
+		"grid"
+	],
+	"icon": "<svg viewBox=\"0 0 18 18\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m0 0h18v18h-18zm4.5 4.5v9zm0 0v9h9v-9z\"\/><\/svg>",
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false,
+		"color": {
+			"text": false
+		},
+		"spacing": {
+			"padding": true,
+			"margin": false
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"shadow": true,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		}
+	},
+	"style": [
+		"lvl-block-css-card"
+	],
+	"viewScript": [
+		"lvl-block-js-card"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "card.php",
+		"blockVersion": 2
+	}
+}

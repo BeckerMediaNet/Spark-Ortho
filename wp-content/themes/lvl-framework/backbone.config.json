@@ -1,0 +1,43 @@
+{
+  "theme_support": [
+    "menu"
+  ],
+  "menus": [
+    {
+      "slug": "main-menu",
+      "label": "Main Menu"
+    },
+    {
+      "slug": "utility",
+      "label": "Utility Nav"
+    },
+    {
+      "slug": "mobile-menu",
+      "label": "Mobile CTA Nav"
+    },
+    {
+      "slug": "footer",
+      "label": "Footer Menu"
+    },
+    {
+      "slug": "colophon",
+      "label": "Colophon Menu"
+    }
+  ],
+  "post_thumbnails": [
+    "post",
+    "lp",
+    "author",
+    "event",
+    "resource",
+    "testimonial",
+    "team-member"
+  ],
+  "html5": [
+    "search-form",
+    "comment-form",
+    "comment-list",
+    "gallery",
+    "caption"
+  ]
+}

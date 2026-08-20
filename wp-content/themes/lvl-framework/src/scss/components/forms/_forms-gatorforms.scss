@@ -1,0 +1,15 @@
+[data-gator-form] {
+
+  .gf__control__failure-message {
+    background: var(--bs-warning-bg-subtle);
+    padding: 2px 5px;
+    font-size: .9rem;
+    color: var(--bs-warning-text-emphasis) !important;
+    margin: 0 1rem;
+  }
+
+  .gf__control {
+    max-width: 98%;
+    padding: var(--bs-spacer-2, .5rem);
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "key": "group_65a98cb1973f9",
+  "title": "Block - Resources",
+  "fields": [
+    {
+      "key": "field_65a98cd9f9b71",
+      "label": "Block Options",
+      "name": "",
+      "aria-label": "",
+      "type": "accordion",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "open": 1,
+      "multi_expand": 0,
+      "endpoint": 0
+    },
+    {
+      "key": "field_65a98cb2f9b70",
+      "label": "Show Filters?",
+      "name": "show_filters",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    },
+    {
+      "key": "field_65a99f0b568c0",
+      "label": "Taxonomy Filters",
+      "name": "taxonomy_filters",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_65a98cb2f9b70",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "category": "Category",
+        "post_tag": "Tag",
+        "post_format": "Format",
+        "article-type": "Type",
+        "business_area": "Business Area"
+      },
+      "default_value": [],
+      "return_format": "value",
+      "multiple": 1,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_65d7b500e3264",
+      "label": "Categories",
+      "name": "categories",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_65a98cb2f9b70",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "category",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "field_type": "multi_select",
+      "allow_null": 1,
+      "allow_in_bindings": 1,
+      "bidirectional": 0,
+      "multiple": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_67659cb00a005",
+      "label": "Tags",
+      "name": "tags",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_65a98cb2f9b70",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "post_tag",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "field_type": "multi_select",
+      "allow_null": 0,
+      "allow_in_bindings": 0,
+      "bidirectional": 0,
+      "multiple": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_67659c720a004",
+      "label": "Business Areas",
+      "name": "business_areas",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_65a98cb2f9b70",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "category",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "field_type": "multi_select",
+      "allow_null": 1,
+      "allow_in_bindings": 0,
+      "bidirectional": 0,
+      "multiple": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_65bbba3bab0f6",
+      "label": "Limit # of posts",
+      "name": "limit",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Limit the number of posts fetched. Leave blank to show all.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": "",
+      "max": "",
+      "placeholder": "",
+      "step": 1,
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_67659c230a003",
+      "label": "Posts",
+      "name": "posts",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "Select specific posts to show.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_65a98cb2f9b70",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["post"],
+      "post_status": ["publish"],
+      "taxonomy": "",
+      "return_format": "id",
+      "multiple": 1,
+      "allow_null": 1,
+      "allow_in_bindings": 0,
+      "bidirectional": 0,
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_67939e942d8a3",
+      "label": "Related Posts",
+      "name": "related_posts",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Show related posts when on a single blog post.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "allow_in_bindings": 0,
+      "ui_on_text": "",
+      "ui_off_text": "",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/resources"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1737727892
+}

@@ -1,0 +1,26 @@
+// BOOTSTRAP ESSENTIALS + CUSTOMIZATION
+@import "bare-bs-necessities";
+
+// COMPONENTS
+//@import "components/_404.scss";
+@import "components/_archives.scss";
+@import "components/_base.scss";
+@import "components/_typography.scss";
+@import "components/_utility.scss"; // TODO: review
+@import "components/_blocks.scss";
+@import "components/_buttons.scss";
+@import "components/_footer.scss";
+@import "components/_header.scss";
+// @import "components/_navigation.scss";
+@import "components/_singles.scss";
+@import "components/_search.scss";
+
+@import "components/_migrated.scss";
+
+// FORMS - only include necessary components
+@import "components/_forms.scss";
+//@import "components/forms/_forms-cf7.scss";
+// @import "components/forms/_forms-gravityforms.scss";
+// @import "components/forms/_forms-hubspot.scss";
+//@import "components/forms/_forms-marketo.scss";
+//@import "components/forms/_forms-gatorforms.scss";

@@ -1,0 +1,12 @@
+# Secrets / environment-specific config — never commit
+wp-config.php
+.vscode/
+_wpeprivate/
+/sftp.json
+
+# WP Engine / OS noise
+.DS_Store
+*.log
+
+# Editor backup files created during this project's CSS cleanup
+*.bak

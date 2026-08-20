@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/accordion-panel",
+	"title": "Accordion Panel",
+	"version": "1.0.0",
+	"description": "Panel to be used in the accordion block",
+	"category": "lvl-blocks",
+	"parent": ["lvl/accordion"],
+	"keywords": [
+		"accordion"
+	],
+	"icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewBox=\"0 -960 960 960\" width=\"24\"><path d=\"M200-280q-33 0-56.5-23.5T120-360v-240q0-33 23.5-56.5T200-680h560q33 0 56.5 23.5T840-600v240q0 33-23.5 56.5T760-280H200Zm0-80h560v-240H200v240Zm-80-400v-80h720v80H120Zm0 640v-80h720v80H120Zm80-480v240-240Z\"\/><\/svg>",
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false,
+		"color": {
+			"background": false,
+			"text": false
+		}
+	},
+	"style": [
+		"lvl-block-css-accordion-panel"
+	],
+	"viewScript": [
+		"lvl-block-js-accordion-panel"
+	],
+	"acf": {
+        "mode": "preview",
+        "renderTemplate": "accordion-panel.php",
+		"blockVersion": 2
+    }
+}

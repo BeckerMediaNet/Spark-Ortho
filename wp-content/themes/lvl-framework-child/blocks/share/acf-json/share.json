@@ -1,0 +1,57 @@
+{
+    "key": "group_65c2a6ad0e811",
+    "title": "Block - Share",
+    "fields": [
+        {
+            "key": "field_65c2a6adb7b2c",
+            "label": "Services",
+            "name": "services",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "facebook": "Facebook",
+                "x": "X",
+                "linkedin": "LinkedIn",
+                "email": "Email",
+                "link": "Link"
+            },
+            "default_value": [
+                "link",
+                "email"
+            ],
+            "return_format": "value",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "lvl\/share"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1707256501
+}

@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/accordion",
+	"title": "Accordion",
+	"version": "1.0.0",
+	"description": "Display content in collapsible panels",
+	"category": "lvl-blocks",
+	"keywords": [
+		"accordion",
+		"collapse"
+	],
+	"icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24\" viewBox=\"0 -960 960 960\" width=\"24\"><path d=\"M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z\"\/><\/svg>",
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false,
+		"color": {
+			"background": false,
+			"text": false
+		},
+		"spacing": {
+			"padding": ["top", "bottom"],
+			"margin": ["top", "bottom"]
+		}
+	},
+	"style": [
+		"lvl-block-css-accordion"
+	],
+	"viewScript": [
+		"lvl-block-js-accordion"
+	],
+	"acf": {
+        "mode": "preview",
+        "renderTemplate": "accordion.php",
+		"blockVersion": 2
+    }
+}

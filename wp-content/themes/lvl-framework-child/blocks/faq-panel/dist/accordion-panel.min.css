@@ -1,0 +1,75 @@
+[data-bs-theme=light] {
+  --block-accordion-panel-border: #90D6CE;
+  --block-accordion-panel-border-expanded: #FF8C7F;
+}
+
+[data-bs-theme=dark] {
+  --block-accordion-panel-border: #00436C;
+  --block-accordion-panel-border-expanded: #FF8C7F;
+}
+
+.block--accordion-panel {
+  padding: 2rem 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0 !important;
+  border-top: 1px solid var(--block-accordion-panel-border) !important;
+  color: inherit;
+}
+
+.block--accordion-panel:last-child {
+  border-bottom: 1px solid var(--block-accordion-panel-border);
+}
+
+.block--accordion-panel:has(.accordion-button[aria-expanded=true]) {
+  border-top-color: var(--block-accordion-panel-border-expanded) !important;
+}
+
+.block--accordion-panel .accordion-header {
+  position: relative;
+}
+
+.block--accordion-panel .accordion-header .accordion-button {
+  position: relative;
+  padding: 0 3rem 0 0;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none;
+  color: inherit;
+}
+
+.block--accordion-panel .accordion-header .accordion-button:focus-visible {
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+}
+
+.block--accordion-panel .accordion-header .accordion-button::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m23.3337 14.5833-5.8334 5.8333-5.8333-5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  transform: translateY(-50%);
+  background: none;
+}
+
+.block--accordion-panel .accordion-header .accordion-button[aria-expanded=true]::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m11.6668 20.4167 5.8334-5.8333 5.8333 5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+}
+
+.block--accordion-panel .accordion-body {
+  padding: 1rem 3rem 1rem 0;
+}
+
+.editor-styles-wrapper .block--accordion-panel {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.editor-styles-wrapper .block--accordion-panel .accordion-collapse {
+  display: block !important;
+}
+
+.editor-styles-wrapper .block--accordion-panel .accordion-body {
+  padding: 1rem 3rem 1rem 0;
+}

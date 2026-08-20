@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/media-text",
+	"title": "Image/Video & Text",
+	"version": "1.0.0",
+	"description": "Display image or video with text",
+	"category": "lvl-blocks",
+	"keywords": [
+		"media",
+		"image",
+		"video",
+		"text"
+	],
+	"icon": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\"><path d=\"M240-320h280v-120H240v120Zm360 0h120v-320H600v320ZM240-520h280v-120H240v120Zm-80 360q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z\"\/><\/svg>",
+	"supports": {
+		"align": ["left", "right"],
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"style": [
+		"lvl-block-css-media-text"
+	],
+	"viewScript": [
+		"lvl-block-js-media-text"
+	],
+	"acf": {
+        "mode": "preview",
+        "renderTemplate": "media-text.php",
+		"blockVersion": 2
+    }
+}

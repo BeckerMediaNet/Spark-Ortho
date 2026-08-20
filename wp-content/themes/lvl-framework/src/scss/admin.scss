@@ -1,0 +1,79 @@
+// GLOBAL ADMIN STYLES
+//body.wp-admin {
+//  background-color: #fff;
+//}
+
+#adminmenu div.wp-menu-image.svg {
+	opacity: 1;
+}
+
+// THEME OPTIONS
+.acf-fields > .acf-tab-wrap .acf-tab-group li a {
+  background: #fff;
+  border-color: transparent;
+}
+
+.acf-fields.-sidebar::before {
+  background: none;
+}
+
+// .postbox.acf-postbox {
+//   border-radius: 5px;
+//   border: 0;
+//   box-shadow: 0 5px 10px -5px rgba(0,0,0,.5);
+// }
+
+
+// LVL MESSAGE STYLES
+.lvl-bgcolor-example{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0; padding: 10px 30px;
+  text-align: center;
+}
+.lvl-bgcolor-example.white{
+  background: #fff;
+  border: 1px solid #eee;
+  color: #646464;
+}
+.lvl-bgcolor-example.gray{
+  background: #E3E7EB;
+  color: #646464;
+}
+.lvl-bgcolor-example.blue{
+  background: #014182;
+  color: #fff;
+}
+.lvl-bgcolor-example.gradient{
+  background: #0C243E linear-gradient(to right, #17426C 0%, #00B45A 100%) no-repeat;
+  color: #fff;
+}
+
+
+.menu-item-bar:has(+ .menu-item-settings .edit-menu-item-mega-menu:checked)::before {
+  content: 'Mega Menu';
+  background: #135e96;
+  border: 1px solid #135e96;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+.field-mega-menu.description.description-wide a {
+  border: 1px solid #135e96;
+  padding: 2px 5px;
+  position: relative;
+  line-height: 1;
+  border-radius: 5px;
+  background: white;
+  color: #135e96;
+  text-decoration: none;
+  display: inline-block;
+  &::after {
+    content: "\27A4";
+    position: relative;
+    margin-left: 5px;
+  }
+}

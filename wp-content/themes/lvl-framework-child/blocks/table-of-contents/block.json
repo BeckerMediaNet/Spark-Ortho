@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lvl/table-of-contents",
+  "title": "Table of Contents",
+  "version": "1.0.0",
+  "description": "Display a table of contents for the current page based on headings",
+  "category": "LVL",
+  "keywords": ["table of contents", "toc"],
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\"><path d=\"M120-240v-80h240v80H120Zm0-200v-80h480v80H120Zm0-200v-80h720v80H120Z\"/></svg>",
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "fullHeight": false,
+    "html": true,
+    "mode": false
+  },
+  "style": "lvl-block-css-table-of-contents",
+  "viewScript": ["lvl-block-js-table-of-contents"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "table-of-contents.php",
+    "blockVersion": 2
+  }
+}

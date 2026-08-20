@@ -1,0 +1,131 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": null
+    },
+    "border": {
+      "radius": true,
+      "width": true
+    },
+    "custom": {},
+    "layout": {
+      "contentSize": "100%"
+    },
+    "color": {
+      "custom": true,
+      "customDuotone": false,
+      "customGradient": true,
+      "link": true,
+      "text": true,
+      "background": true,
+      "defaultGradients": false,
+      "defaultPalette": true,
+      "duotone": [],
+      "gradients": [],
+      "palette": []
+    },
+    "typography": {
+      "fluid": true,
+      "customFontSize": true,
+      "lineHeight": true,
+      "dropCap": false,
+      "fontStyle": true,
+      "fontWeight": false,
+      "letterSpacing": true,
+      "textDecoration": true,
+      "textTransform": true,
+      "fontSizes": [
+        {
+          "size": "14px",
+          "slug": "body-small",
+          "name": "Body Small"
+        },
+        {
+          "size": "16px",
+          "slug": "body-regular",
+          "name": "Body Regular (default)"
+        },
+        {
+          "size": "18px",
+          "slug": "body-large",
+          "name": "Body Large"
+        },
+        {
+          "size": "17px",
+          "fluid": {
+            "min": "16px",
+            "max": "17px"
+          },
+          "slug": "lead",
+          "name": "Lead P"
+        },
+        {
+          "size": "68px",
+          "fluid": {
+            "min": "44px",
+            "max": "68px"
+          },
+          "slug": "h1-super",
+          "name": "H1 Super"
+        },
+        {
+          "size": "52px",
+          "fluid": {
+            "min": "36px",
+            "max": "52px"
+          },
+          "slug": "h1",
+          "name": "H1"
+        },
+        {
+          "size": "45px",
+          "fluid": {
+            "min": "33px",
+            "max": "45px"
+          },
+          "slug": "h2",
+          "name": "H2"
+        },
+        {
+          "size": "24px",
+          "fluid": {
+            "min": "22px",
+            "max": "24px"
+          },
+          "slug": "h3",
+          "name": "H3"
+        }
+      ]
+    },
+    "appearanceTools": true,
+    "blocks": {
+      "core/paragraph": {
+        "spacing": {
+          "margin": true
+        }
+      },
+      "core/button": {
+        "border": {
+          "radius": false,
+          "width": false
+        }
+      }
+    }
+  },
+  "styles": {
+    "color": {
+    },
+    "typography": {
+    },
+    "elements": {
+      "link": {
+        "color": {},
+        "typography": {}
+      }
+    }
+  }
+}

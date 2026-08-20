@@ -1,0 +1,15 @@
+#header {
+  .utility-nav {
+    max-width: 100%;
+    overflow-x: auto;
+    .menu-item {
+      > a {
+        padding: .5rem 1rem;
+
+        @include media-breakpoint-up(lg) {
+          padding: .5rem 1rem;
+        }
+      }
+    }
+  }
+}

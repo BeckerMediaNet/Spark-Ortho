@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lvl/dentist-cards",
+  "title": "Dentist Cards",
+  "version": "1.0.0",
+  "description": "Display dentists in a customizable card layout with location-based filtering",
+  "category": "lvl-blocks",
+  "keywords": ["cards", "grid"],
+  "icon": "<svg viewBox=\"0 0 18 18\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m0 0h18v18h-18zm4.5 4.5v9zm0 0v9h9v-9z\"/></svg>",
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "fullHeight": false,
+    "html": true,
+    "mode": false,
+    "color": {
+      "text": false
+    },
+    "spacing": {
+      "padding": true,
+      "margin": false
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "shadow": true,
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    }
+  },
+  "style": ["lvl-block-css-dentist-cards"],
+  "viewScript": "lvl-block-js-dentist-cards",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "dentist-cards.php",
+    "blockVersion": 2
+  }
+}

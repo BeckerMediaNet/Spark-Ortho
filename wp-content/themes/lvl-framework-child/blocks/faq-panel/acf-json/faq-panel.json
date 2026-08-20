@@ -1,0 +1,212 @@
+{
+  "key": "group_65a01efaeff22",
+  "title": "Block - FAQ Panel",
+  "fields": [
+    {
+      "key": "field_faq_selection_method",
+      "label": "Selection Method",
+      "name": "selection_method",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose how to select FAQs to display.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "automatic": "Automatic",
+        "manual": "Manual Selection"
+      },
+      "default_value": "automatic",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_faq_limit_faqs",
+      "label": "Limit Number of FAQs",
+      "name": "limit_faqs",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Enable to limit the number of FAQs displayed. Disable to show all matching FAQs.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faq_selection_method",
+            "operator": "==",
+            "value": "automatic"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No",
+      "ui": 1
+    },
+    {
+      "key": "field_faq_number_of_faqs",
+      "label": "Number of FAQs",
+      "name": "number_of_faqs",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "How many FAQs to display.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faq_selection_method",
+            "operator": "==",
+            "value": "automatic"
+          },
+          {
+            "field": "field_faq_limit_faqs",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 5,
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "placeholder": ""
+    },
+
+    {
+      "key": "field_faq_topics_filter",
+      "label": "Filter by Topics",
+      "name": "topics_filter",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "Optionally filter FAQs by specific topics. Leave empty to show all topics.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faq_selection_method",
+            "operator": "==",
+            "value": "automatic"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "topics",
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "field_type": "multi_select",
+      "multiple": 1,
+      "allow_null": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_faq_sort_order",
+      "label": "Sort Order",
+      "name": "sort_order",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose how to sort and display the FAQs.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faq_selection_method",
+            "operator": "==",
+            "value": "automatic"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "date_desc": "Newest First (Date Descending)",
+        "date_asc": "Oldest First (Date Ascending)",
+        "title_asc": "A to Z (Alphabetical)",
+        "title_desc": "Z to A (Reverse Alphabetical)"
+      },
+      "default_value": "date_desc",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_faq_manual_faqs",
+      "label": "Select FAQs",
+      "name": "manual_faqs",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "Select specific FAQs to display.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faq_selection_method",
+            "operator": "==",
+            "value": "manual"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["faq"],
+      "post_status": ["publish"],
+      "taxonomy": "",
+      "return_format": "object",
+      "multiple": 1,
+      "allow_null": 0,
+      "ui": 1,
+      "bidirectional_target": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/faq-panel"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1730651000
+}

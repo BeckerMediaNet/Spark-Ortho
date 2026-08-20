@@ -1,0 +1,78 @@
+{
+  "key": "group_map",
+  "title": "Block - Map",
+  "fields": [
+    {
+      "key": "field_map_location",
+      "label": "Location",
+      "name": "locations",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Select the locations for map or leave empty to show all locations.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "location"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search",
+        "taxonomy"
+      ],
+      "elements": "",
+      "min": "",
+      "max": "",
+      "return_format": "id",
+      "bidirectional": 0,
+      "bidirectional_target": []
+    },
+    {
+        "key": "field_map_min_height",
+        "label": "Min Height",
+        "name": "min_height",
+        "type": "number",
+        "instructions": "Set the minimum height of the map.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+        },
+        "default_value": 400,
+        "placeholder": "",
+        "prepend": "",
+        "append": "px",
+        "min": 0,
+        "max": "",
+        "step": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl\/map"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1713820075
+}

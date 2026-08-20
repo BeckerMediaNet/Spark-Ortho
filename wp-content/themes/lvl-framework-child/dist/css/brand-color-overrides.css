@@ -1,0 +1,327 @@
+/* Spark Ortho rebrand overrides.
+   Temporary until app.min.css (excluded from this SFTP sync) is reachable and
+   these rules can be merged into the real source. Selectors are matched to
+   app.min.css's actual specificity (fetched live from the server, since this
+   file itself can't be synced) rather than guessed. */
+
+/* --- Header logo: remove the forced 32/9 aspect-ratio box (was squishing the taller Spark logo) --- */
+
+#header {
+	--nav-logo-aspect-ratio: auto;
+}
+
+/* --- Header background + nav text (bg white, text Deep Navy) --- */
+
+#header .utility-nav,
+#header .main-nav-wrapper {
+	background-color: #fff;
+	color: #253855;
+}
+
+#header .utility-nav .nav-link {
+	color: #253855;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item .nav-link {
+	color: #253855;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item {
+	flex-shrink: 0;
+}
+
+#header .nav-container .navbar-nav .dropdown-menu {
+	border-top: 1px solid #0093d1;
+}
+
+/* --- Old red (#e8475a) -> Accent Hot Pink (#ec008c), every remaining instance --- */
+
+a:hover {
+	color: #ec008c;
+}
+
+.wp-block-button.is-style-btn-red .wp-element-button {
+	background-color: #ec008c;
+	border-color: #ec008c;
+	color: #fff;
+}
+
+.wp-block-button.is-style-btn-red-outline .wp-element-button {
+	background-color: transparent;
+	border-color: #ec008c;
+	color: #ec008c;
+}
+
+.wp-block-button.is-style-btn-red-outline .wp-element-button:active,
+.wp-block-button.is-style-btn-red-outline .wp-element-button:focus,
+.wp-block-button.is-style-btn-red-outline .wp-element-button:hover {
+	background-color: #ec008c;
+	border-color: #ec008c;
+	color: #fff;
+}
+
+#header .nav-container .gtranslate_wrapper .gt_selector:active,
+#header .nav-container .gtranslate_wrapper .gt_selector:focus,
+#header .nav-container .gtranslate_wrapper .gt_selector:hover {
+	outline: 1px solid #ec008c;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item:hover>.nav-link {
+	text-decoration-color: #ec008c;
+}
+
+.wp-block-list.is-style-dash li::marker,
+.wp-block-list.is-style-dot li::marker,
+.wp-block-list.is-style-circle li::marker,
+.wp-block-list.is-style-square li::marker {
+	color: #ec008c;
+}
+
+.wp-block-heading.has-accent.has-red-accent-color:before {
+	background-color: #ec008c;
+}
+
+.wp-block-table:focus-within {
+	outline: 2px solid #ec008c;
+	outline-offset: 2px;
+}
+
+.wp-block-table table:focus {
+	outline: 2px solid #ec008c;
+	outline-offset: 2px;
+}
+
+.modal-backdrop {
+	--bs-backdrop-bg: #ec008c;
+}
+
+#header .progress-bar-container .progress-bar {
+	background: #ec008c;
+}
+
+.post-type-archive-location .locations-hero .location-search-form button[type=submit] {
+	background-color: #ec008c;
+}
+
+/* --- New "Checkmark" list style (core/list block), registered in lib/blocks/styles.php --- */
+
+.wp-block-list.is-style-checkmark {
+	list-style: none;
+	padding-left: 0;
+}
+
+.wp-block-list.is-style-checkmark li {
+	position: relative;
+	padding-left: 1.5em;
+}
+
+.wp-block-list.is-style-checkmark li::before {
+	content: "\2713";
+	position: absolute;
+	left: 0;
+	color: #ec008c;
+}
+
+/* --- "Book an Appointment" pill (.menu-button) -> Accent Hot Pink --- */
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item.menu-button .nav-link {
+	background-color: #ec008c;
+	border-color: #ec008c;
+	color: #fff;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item.menu-button .nav-link:hover {
+	background-color: #c90077;
+	border-color: #c90077;
+	color: #fff;
+}
+
+/* --- New "Contact" pill (.contact-button) -> Primary Sky Blue, same pill treatment as .menu-button --- */
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item.contact-button .nav-link {
+	background-color: #0093d1;
+	color: #fff;
+	border: 2px solid #0093d1;
+	border-radius: 48px;
+	padding: 8px 30px;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item.contact-button .nav-link:hover {
+	background-color: #007db2;
+	border-color: #007db2;
+	color: #fff;
+	text-decoration: none;
+}
+
+#header .main-nav-wrapper .nav-wrapper .main-nav .navbar-nav>.menu-item.contact-button .nav-link:after {
+	content: "";
+	inline-size: 10px;
+	block-size: 8px;
+	flex: 0 0 10px;
+	transform: translateX(0);
+	transition: transform .4s ease;
+	background: currentColor;
+	-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><path d="M1 5H11M11 5L6.714 1M11 5L6.714 9" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center/contain;
+	mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><path d="M1 5H11M11 5L6.714 1M11 5L6.714 9" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center/contain;
+}
+
+/* --- Locations page: old green/light-blue/red -> brand colors --- */
+
+.post-type-archive-location .locations-hero {
+	background: #def0f8;
+}
+
+.post-type-archive-location .locations-hero .archive-title {
+	color: #253855;
+}
+
+.post-type-archive-location .locations-hero .location-search-form button[type=submit]:hover {
+	background: #c90077;
+}
+
+.post-type-archive-location .locations-hero .btn-use-location:hover {
+	background-color: #253855;
+	border-color: #253855;
+	color: #fff;
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card {
+	border-color: #0093d1;
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card:nth-child(odd) {
+	border-color: #0093d1;
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card:nth-child(2n) {
+	border-color: #73eedc;
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card .location-details .location-card-header .location-distance {
+	color: #0093d1;
+	background: rgba(0, 147, 209, .1);
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card .location-details .location-card-header .location-distance.proximity-distance {
+	background: #0093d1;
+}
+
+.post-type-archive-location .locations-content-wrapper .locations-listings .location-card .location-details .location-services .service-pill {
+	border-color: #0093d1;
+}
+
+.post-type-archive-location .filter-status .active-filters .filter-indicator {
+	background: rgba(0, 147, 209, .1);
+	border-color: rgba(0, 147, 209, .3);
+}
+
+.post-type-archive-location .filter-status .active-filters .filter-indicator.zip-filter {
+	background: rgba(0, 147, 209, .1);
+	border-color: rgba(0, 147, 209, .3);
+}
+
+.post-type-archive-location .filter-status .active-filters .filter-indicator.combined-filter {
+	background: rgba(236, 0, 140, .1);
+	border-color: rgba(236, 0, 140, .3);
+}
+
+/* --- Footer: center images + buttons on mobile only (WP core's own columns-stack breakpoint) --- */
+
+@media (max-width: 781px) {
+	#footer .wp-block-image {
+		text-align: center;
+	}
+
+	#footer .wp-block-buttons {
+		justify-content: center;
+	}
+}
+
+/* --- Team cards: force equal height across a row regardless of 1 vs 2-line names.
+   .team-card's own height:100% fights the parent flex row's stretch behavior (cross-size
+   is indefinite in a wrapping flex row), so cards size to their own content instead of
+   matching their row. Confirmed fixed by live-testing directly in the browser. --- */
+
+.block--team-cards .team-card {
+	height: auto !important;
+	align-self: stretch !important;
+}
+
+/* --- "has-phone-icon" utility: add this class (via a block's Advanced > Additional CSS
+   Class(es) field) to any paragraph, heading, list item, or other text block to prepend
+   the brand phone icon before its text. Best for short single-line text like a phone
+   number, since inline-flex treats the whole block as one line. --- */
+
+.has-phone-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.has-phone-icon::before {
+	content: "";
+	display: inline-block;
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	background: url('/wp-content/uploads/2026/08/phoneIcon.png') no-repeat center / contain;
+}
+
+/* --- Doctors archive: hide the "By specialty" filter for now (data/markup left intact,
+   just visually hidden -- scoped to team-cards so it doesn't affect .filter-bar in the
+   dentist-cards or resources blocks, which reuse the same class name). --- */
+
+.block--team-cards .filter-bar > .filter:nth-child(1) {
+	display: none;
+}
+
+/* --- Hide the "Scroll to Top" button. A previous attempt commented out a display:none
+   declaration inside the element's inline style attribute, but a commented-out CSS
+   declaration is inert -- it doesn't actually hide anything. --- */
+
+.scroll-to-top {
+	display: none;
+}
+
+/* --- 360/Street View embeds: each location page has its own hand-pasted Google Maps
+   iframe with a hard-coded width="1200" (and inconsistent height -- Bethlehem is 900,
+   Reading is 700). As a replaced element it ignores its flex-centered parent and
+   overflows instead of shrinking, so it renders left-aligned and cut off. Targeting the
+   existing width="1200" attribute applies this everywhere without editing every page's
+   content or adding a class per instance. height:auto didn't pick up the iframe's own
+   width/height attributes as an intrinsic ratio (rendered ~150px tall instead), so
+   aspect-ratio is set explicitly -- safe here since Street View is a live embed that
+   fills whatever box it's given rather than a static image that would distort. --- */
+
+iframe[width="1200"] {
+	display: block;
+	width: 100%;
+	max-width: 1200px;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	margin: 24px auto 0;
+}
+
+/* --- Gravity Forms: checkbox/radio checkmarks disappearing on validation-error fields.
+   app.min.css's error-state rule (#main .gform_wrapper .gfield_error .ginput_container
+   input { background: transparent }) was written for text inputs, but its bare `input`
+   selector also matches checkboxes/radios, and its ID-based specificity beats
+   .form-check-input:checked -- wiping the checkmark's background-image even though the
+   input is legitimately checked underneath (confirmed via checked in the DOM with an
+   empty computed background). Re-applying at matching specificity, reusing Bootstrap's
+   own --bs-form-check-bg-image variable so checkbox vs radio keep their correct icon. --- */
+
+#main .gform_wrapper .gfield_error .ginput_container input[type="checkbox"]:checked,
+#main .gform_wrapper .gfield_error .ginput_container input[type="radio"]:checked {
+	background-color: #0093d1;
+	border-color: #0093d1;
+	background-image: var(--bs-form-check-bg-image);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: contain;
+}

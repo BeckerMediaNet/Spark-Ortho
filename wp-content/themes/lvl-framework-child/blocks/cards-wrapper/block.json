@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/cards-wrapper",
+	"title": "Cards",
+	"version": "1.0.0",
+	"description": "Auto populate resources/posts or manually add cards to a page.",
+	"category": "lvl-blocks",
+	"keywords": [
+		"cards",
+		"resources",
+		"insights",
+		"posts"
+	],
+	"icon": "<svg viewBox=\"0 0 18 18\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m0 0h8v8h-8zm2 2v4zm8-2h8v8h-8zm2 2v4zm-12 8h8v8h-8zm2 2v4zm11-2h2v3h3v2h-3v3h-2v-3h-3v-2h3zm-1-8v4h4v-4zm-10 0v4h4v-4zm0 10v4h4v-4z\"\/><\/svg>",
+	"supports": {
+		"align": [
+			"left",
+			"right",
+			"center"
+		],
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false
+	},
+	"style": [
+		"lvl-block-css-card",
+		"lvl-block-css-cards-wrapper"
+	],
+	"viewScript": [
+		"lvl-block-js-cards-wrapper",
+		"lvl-swiper"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "cards-wrapper.php",
+		"blockVersion": 2
+	}
+}

@@ -1,0 +1,190 @@
+{
+  "key": "group_65494daeb777r",
+  "title": "Block - Dentist Cards",
+  "fields": [
+    {
+      "key": "field_6514c6273b7c4",
+      "label": "Display Options",
+      "name": "",
+      "aria-label": "",
+      "type": "accordion",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "open": 1,
+      "multi_expand": 0,
+      "endpoint": 0
+    },
+    {
+      "key": "field_dentist_display_mode",
+      "label": "Display Mode",
+      "name": "display_mode",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose how to display dentists",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "related": "Related to Current Location (Auto)",
+        "all": "All Dentists with Filters"
+      },
+      "default_value": "related",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_image_fit",
+      "label": "Image Fit",
+      "name": "image_fit",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose how images should fit within the card.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "cover": "Cover (Fill the space, may crop)",
+        "contain": "Contain (Show entire image, may have gaps)"
+      },
+      "default_value": "cover",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_dentist_show_filters",
+      "label": "Show Filters",
+      "name": "show_filters",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Display specialty and location filters",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_dentist_display_mode",
+            "operator": "==",
+            "value": "all"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    },
+    {
+      "key": "field_dentist_taxonomy_filters",
+      "label": "Taxonomy Filters",
+      "name": "taxonomy_filters",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose which taxonomies to show as filters",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_dentist_display_mode",
+            "operator": "==",
+            "value": "all"
+          },
+          {
+            "field": "field_dentist_show_filters",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "specialty": "Specialty",
+        "location_service": "Location Service"
+      },
+      "default_value": ["specialty"],
+      "return_format": "value",
+      "multiple": 1,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_dentist_per_page",
+      "label": "Dentists Per Page",
+      "name": "per_page",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Number of dentists to show per page (for 'All Dentists' mode)",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_dentist_display_mode",
+            "operator": "==",
+            "value": "all"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 12,
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "placeholder": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/dentist-cards"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1760125541
+}

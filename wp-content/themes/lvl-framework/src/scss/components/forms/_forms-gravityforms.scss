@@ -1,0 +1,259 @@
+//$grid-gutter-width-half: 1rem; // NOTE: i have no idea what these are; they're only defined here to correct sass errors
+//$form-grid-gutter-width-half: 1rem; // NOTE: i have no idea what these are; they're only defined here to correct sass errors
+
+#main {
+  .gform_wrapper {
+    @keyframes validationFadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    --bs-border-radius: 0;
+
+    border-radius: 0;
+    background-color: var(--bs-white);
+    padding: 0 var(--bs-gutter-x, 1rem);
+
+    //@include media-breakpoint-up(md) {
+    //  padding: 2rem 3rem;
+    //}
+    //
+    //@include media-breakpoint-up(lg) {
+    //  padding: 3rem 4rem;
+    //}
+
+    .gform_heading {
+      text-align: center;
+
+      .gform_title {
+        font-size: 1.25rem !important;
+        padding-bottom: 1rem;
+      }
+
+      .gform_required_legend {
+        display: none;
+      }
+    }
+
+    .gform_body {
+      .gfield {
+        position: relative;
+
+        &:not(.gfield--type-html) {
+          //margin-bottom: 10px;
+        }
+
+        &.gfield--type-consent {
+          .gfield_consent_description {
+            margin-bottom: 10px;
+          }
+        }
+
+        &.gsection:not(:first-child) {
+          margin-top: 2rem;
+        }
+
+        &.gfield--width-half {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+
+          .gfield_label {
+            margin-bottom: 5px;
+          }
+        }
+
+        > label,
+        .gfield_label {
+          font-weight: 400;
+          //font-size: 1rem;
+          margin-bottom: 2px;
+        }
+
+        > .ginput_container {
+          input,
+          select,
+          textarea {
+            border-radius: var(--bs-border-radius, 4px) !important;
+            border: solid 1px var(--bs-gray-900);
+
+            &:not(.form-check-input, [type="checkbox"]) {
+              //height: 42px;
+            }
+
+            &:focus-visible,
+            &:focus-within {
+              box-shadow: none;
+              outline: solid 2px var(--bs-primary);
+            }
+          }
+
+          input,
+          select,
+          textarea {
+            &:focus-visible,
+            &:focus-within {
+              outline: solid 2px var(--bs-primary);
+              box-shadow: none;
+            }
+          }
+
+          &.ginput_container_date {
+            .datepicker {
+              width: 100%;
+            }
+          }
+
+          input[type="radio"] {
+            border-radius: 50% !important;
+          }
+        }
+
+        input:not([type="submit"]):not([type="radio"]):not([type="number"]):not(
+            [type="checkbox"]
+          ),
+        textarea,
+        select {
+          //padding: 1em 1em .5em;
+        }
+
+        .gfield_time_ampm select {
+          padding: initial !important;
+        }
+
+        &.gfield--type-text,
+        &.gfield--type-email,
+        &.gfield--type-textarea,
+        &.gfield--type-date,
+        &.gfield--type-list,
+        &.gfield--type-phone {
+          .gfield_label {
+            line-height: 1;
+          }
+        }
+
+        .datepicker::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    .gform_footer {
+      justify-content: center;
+
+      input[type="submit"],
+      .gform_button {
+        @extend .btn, .btn-primary;
+        position: relative;
+      }
+    }
+
+    .gfield_error {
+      label,
+      legend {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: var(--bs-warning-bg-subtle, #fff3cd);
+      }
+    }
+
+    .gform_validation_errors {
+      background: var(--bs-warning-bg-subtle, #fff3cd);
+      color: var(--bs-warning-text-emphasis, #664d03);
+      border: 1px solid var(--bs-warning-text-emphasis, #664d03);
+      border-radius: var(--bs-border-radius, 0.25rem);
+      box-shadow: none;
+      padding: 16px 20px;
+      margin-bottom: 1rem;
+
+      animation: validationFadeIn 0.35s ease-in;
+
+      :last-child {
+        margin-bottom: 0;
+      }
+
+      .gform_submission_error {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        color: inherit;
+      }
+
+      > h2 .gform-icon {
+        height: initial;
+        inset-inline-start: initial;
+        position: absolute;
+        inset-block-start: initial;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        background: var(--bs-white);
+        border-radius: 50%;
+      }
+    }
+
+    .validation_message {
+      background: var(--bs-warning-bg-subtle, #fff3cd);
+      color: var(--bs-warning-text-emphasis, #664d03);
+      border: 0;
+      //border-style: solid;
+      //border-color: var(--bs-warning-text-emphasis, #664D03);
+      //border-width: 0 1px 1px;
+      //border-radius: 0 0 var(--bs-border-radius-sm, .1rem) var(--bs-border-radius-sm, .1rem);
+      //box-shadow: 0 0 0 1px var(--bs-warning-text-emphasis, #664D03);
+      padding: 5px;
+      //margin-top: 1rem;
+      font-size: 0.9em;
+      display: inline-block;
+      width: max-content;
+
+      animation: validationFadeIn 0.35s ease-in;
+    }
+
+    &.gravity-theme {
+      .gform_page_footer {
+        margin-top: 25px;
+        text-align: center;
+
+        input[type="button"],
+        input[type="submit"] {
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      .gf_page_steps {
+        margin-bottom: 30px !important;
+
+        .gf_step_completed {
+          .gf_step_number {
+            &::before {
+              background: var(--bs-success-bg, #155724);
+              border-color: var(--bs-success-bg, #155724);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .gform_confirmation_wrapper {
+    margin: 1rem;
+
+    .gform_confirmation_message {
+      background: var(--bs-success-bg-subtle, #d4edda);
+      color: var(--bs-success-text-emphasis, #155724);
+      border: 1px solid var(--bs-success-text-emphasis, #155724);
+      border-radius: var(--bs-border-radius, 0.25rem);
+      box-shadow: none;
+      padding: 16px 20px;
+      margin-bottom: 1rem;
+
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

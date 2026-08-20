@@ -1,0 +1,138 @@
+{
+  "key": "group_6643a8d621266",
+  "title": "Block - Gallery Slider",
+  "fields": [
+    {
+      "key": "field_6643a8d79a0f2",
+      "label": "Images",
+      "name": "images",
+      "aria-label": "",
+      "type": "gallery",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min": "",
+      "max": "",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "insert": "append",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_6787ed4381689",
+      "label": "Autoplay",
+      "name": "autoplay",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Enable automatic sliding of Images",
+      "required": 0,
+      "conditional_logic": [],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    },
+    {
+      "key": "field_6787ed4381667",
+      "label": "Autoplay Delay",
+      "name": "autoplay_delay",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Delay between slides in milliseconds (0 = continuous scroll)",
+      "required": 0,
+      "conditional_logic": [],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "min": 0,
+      "max": 10000,
+      "allow_in_bindings": 1,
+      "step": 100,
+      "prepend": "",
+      "append": "ms"
+    },
+    {
+      "key": "field_6787ed4381699",
+      "label": "Show Navigation",
+      "name": "show_navigation",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Show previous/next navigation buttons",
+      "required": 0,
+      "conditional_logic": [],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    },
+    {
+      "key": "field_6787ed4381700",
+      "label": "Show Pagination",
+      "name": "show_pagination",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Show pagination dots below the slider",
+      "required": 0,
+      "conditional_logic": [],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/gallery-slider"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1736961452
+}

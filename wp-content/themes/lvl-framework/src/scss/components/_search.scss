@@ -1,0 +1,104 @@
+// SEARCH BLOCK
+.wp-block-search {
+  &.wp-block-search__button-only {
+    .form-control {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .btn {
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  }
+
+  &.wp-block-search__button-inside {
+    .btn {
+      border-left: 0 !important;
+    }
+  }
+
+  .wp-block-search__inside-wrapper {
+    border: transparent;
+  }
+
+  .wp-block-search__input.form-control {
+    border: 1px solid var(--bs-border-color);
+  }
+}
+// END SEARCH BLOCK
+
+// SEARCH RESULTS PAGE
+.search {
+    .banner {
+        //background-color: var(--bs-primary);
+        //
+        //h1 {
+        //    color: var(--bs-white);
+        //}
+    }
+
+    .search-results {
+        .search-results-list {
+            .search-result:last-child {
+                border-bottom: 0 !important;
+            }
+        }
+    }
+
+    // .pagination {
+    //     --bs-pagination-color: var(--bs-white);
+    //     --bs-pagination-color-active: var(--bs-white);
+    //     --bs-pagination-bg: var(--bs-white);
+    //     --bs-pagination-border-color: var(--bs-gray);
+    //     --bs-pagination-bg-active: var(--bs-primary);
+    //     --bs-pagination-hover-bg: var(--bs-secondary);
+    //     --bs-pagination-border-radius: 4px;
+    //     --bs-pagination-border-width: 2px;
+
+    //     .nav-links {
+    //         display: flex;
+    //         border: solid var(--bs-pagination-border-width) var(--bs-pagination-border-color);
+    //         border-radius: var(--bs-pagination-border-radius);
+
+    //         .page-numbers {
+    //             border-right: solid var(--bs-pagination-border-width) var(--bs-pagination-border-color);
+    //             padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    //             background: var(--bs-pagination-bg);
+
+    //             &.current {
+    //                 background: var(--bs-pagination-bg-active);
+    //                 color: var(--bs-pagination-color);
+    //             }
+
+    //             &.page-numbers:last-child {
+    //                 border-right: 0;
+    //             }
+
+    //             &:hover {
+    //                 text-decoration: none;
+    //                 background: var(--bs-pagination-hover-bg);
+    //                 color: var(--bs-pagination-color-active);
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
+.relevanssi-live-search-results {
+    min-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.rlv-has-spinner {
+    border-color: var(--bs-primary);
+    border-right-color: transparent;
+}
+
+.rlv-has-spinner::after {
+    background-color: var(--bs-primary);
+}
+
+.relevanssi-live-search-results-showing {
+    opacity: 1;
+}

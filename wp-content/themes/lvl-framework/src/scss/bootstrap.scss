@@ -1,0 +1,108 @@
+// BOOTSTRAP VERSION: 5.3.0
+
+// BOOTSTRAP ESSENTIALS
+@import "bare-bs-necessities";
+
+
+// STANDARD COMPONENTS
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+
+// OPTIONAL COMPONENTS
+@import '~bootstrap/scss/dropdown';
+// @import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+//@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/accordion'; //TODO: Add to accordion block instead?
+// @import '~bootstrap/scss/breadcrumb';
+@import '~bootstrap/scss/pagination';
+//@import '~bootstrap/scss/badge';
+// @import '~bootstrap/scss/alert';
+// @import '~bootstrap/scss/progress';
+// @import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/close';
+// @import '~bootstrap/scss/toasts';
+@import '~bootstrap/scss/modal';
+// @import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+// @import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
+ @import '~bootstrap/scss/offcanvas';
+@import '~bootstrap/scss/placeholders';
+
+// HELPERS - https://getbootstrap.com/docs/5.3/helpers/
+@import '~bootstrap/scss/helpers';
+
+// UTILITIES - https://getbootstrap.com/docs/5.3/utilities/api/
+@import '~bootstrap/scss/utilities/api';
+
+// BOOTSTRAP EXTENDS
+// Extend Bootstrap classes here and not in components to keep compiled CSS minimal
+//
+.wp-block-columns {
+	// @extend .row;
+	margin-bottom: var(--bs-gutter-x);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:not(.alignfull) {
+		padding-left: calc(8.3333% - var(--bs-gutter-x));
+		padding-right: calc(8.3333% - var(--bs-gutter-x));
+	
+	
+		&:not(.alignwide) {
+			
+
+			padding-left: 8.3333%;
+			padding-right: 8.3333%;
+
+			@include media-breakpoint-down(xl) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	> .wp-block-column {
+		// @extend .col-lg;
+
+		display: flex;
+		flex-direction: column;
+
+		@include media-breakpoint-down(lg) {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.hs-form {
+  input:not([type="submit"],[type="checkbox"],[type="radio"]), textarea, select {
+    @extend .form-control;
+  }
+
+  //input[type="submit"] {
+  //  @extend .btn, .btn-primary;
+  //}
+  input[type="radio"], input[type="checkbox"] {
+    @extend .form-check-input;
+  }
+}
+
+.justify-content-right {
+	@extend .justify-content-end;
+}
+
+.list-style-unstyled {
+	@extend .list-unstyled;
+}

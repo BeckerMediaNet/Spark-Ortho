@@ -1,0 +1,20 @@
+{
+    "/dist/js/app.min.js": "/dist/js/app.min.js",
+    "/dist/js/bootstrap.min.js": "/dist/js/bootstrap.min.js",
+    "/dist/admin/js/acf.min.js": "/dist/admin/js/acf.min.js",
+    "/dist/js/forms.min.js": "/dist/js/forms.min.js",
+    "/dist/admin/js/admin.min.js": "/dist/admin/js/admin.min.js",
+    "/dist/js/swiper.min.js": "/dist/js/swiper.min.js",
+    "/dist/js/swiffy.min.js": "/dist/js/swiffy.min.js",
+    "/dist/js/countup.min.js": "/dist/js/countup.min.js",
+    "/dist/js/aos.min.js": "/dist/js/aos.min.js",
+    "/dist/js/editor.min.js": "/dist/js/editor.min.js",
+    "/dist/css/frontend.min.css": "/dist/css/frontend.min.css",
+    "/dist/css/wp.min.css": "/dist/css/wp.min.css",
+    "/dist/css/bootstrap.min.css": "/dist/css/bootstrap.min.css",
+    "/dist/css/app.min.css": "/dist/css/app.min.css",
+    "/dist/css/swiper.min.css": "/dist/css/swiper.min.css",
+    "/dist/admin/css/editor.min.css": "/dist/admin/css/editor.min.css",
+    "/dist/admin/css/admin.min.css": "/dist/admin/css/admin.min.css",
+    "/dist/admin/css/login.min.css": "/dist/admin/css/login.min.css"
+}

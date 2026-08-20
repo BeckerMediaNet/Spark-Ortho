@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/logo-marquee",
+	"title": "Logo Marquee",
+	"version": "1.0.0",
+	"description": "A single row of logos that scrolls continuously to the left in a seamless loop, pausing on hover.",
+	"category": "lvl-blocks",
+	"keywords": [
+		"logos",
+		"marquee",
+		"ticker",
+		"carousel",
+		"insurance"
+	],
+	"icon": "images-alt2",
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false
+	},
+	"style": "lvl-block-css-logo-marquee",
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "logo-marquee.php",
+		"blockVersion": 2
+	}
+}

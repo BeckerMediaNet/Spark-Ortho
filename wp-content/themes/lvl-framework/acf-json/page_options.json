@@ -1,0 +1,65 @@
+{
+    "key": "group_660bf6cc2a89e",
+    "title": "Page Options",
+    "fields": [
+        {
+            "key": "field_660bf6cc12182",
+            "label": "Hide Navigation",
+            "name": "hide_nav",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Hide the main navigation header and utility navigation bar on this page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_660bf6cc12180",
+            "label": "Transparent Navigation",
+            "name": "transparent_navigation",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Display the main navigation header with a transparent background, white logo, and white navigation links. NOTE: make the first block has sufficient contrast and spacing to accommodate being pulled underneath the navigation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1712060307
+}

@@ -1,0 +1,67 @@
+// BOOTSTRAP ESSENTIALS
+@import "bare-bs-necessities";
+@import "~bootstrap/scss/root";
+
+body.login {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  background-image: var(--wp--custom--login-background-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--wp--custom--login-background-color);
+    opacity: 0.9;
+    z-index: -1;
+  }
+
+  #login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto 0 0;
+    padding: 0 5%;
+    background: white;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    [href="https://wordpress.org/"]
+    {
+      pointer-events: none;
+    }
+
+    .wp-login-logo {
+      > a {
+        display: block;
+        height: 100%;
+        width: 400px;
+        background-image: var(--wp--custom--login-logo);
+        background-size: contain;
+        background-position: center;
+        font-size: inherit;
+      }
+    }
+
+    #loginform {
+      border-radius: 8px;
+    }
+  }
+}
+
+#wp-auth-check {
+  min-height: 50vh;
+  background-color: #fff;
+  border-radius: 8px;
+}

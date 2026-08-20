@@ -1,0 +1,125 @@
+{
+  "key": "block_testimonials_key",
+  "title": "Block - Testimonials",
+  "fields": [
+    {
+      "key": "field_651d51d0c88bf",
+      "label": "Block Options",
+      "name": "",
+      "aria-label": "",
+      "type": "accordion",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "open": 1,
+      "multi_expand": 1,
+      "endpoint": 0
+    },
+    {
+      "key": "field_671d51d0c88c1",
+      "label": "Display All Testimonials",
+      "name": "display_all_testimonials",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Display all testimonials in a paginated grid layout (9 per page, 3 per row) with load more functionality",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    },
+    {
+      "key": "field_651c7422e208b",
+      "label": "Testimonials",
+      "name": "testimonials",
+      "aria-label": "",
+      "type": "post_object",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_671d51d0c88c1",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["testimonial"],
+      "post_status": ["publish"],
+      "taxonomy": "",
+      "return_format": "object",
+      "multiple": 1,
+      "allow_null": 0,
+      "bidirectional": 0,
+      "ui": 1,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_651d51d0c88c0",
+      "label": "Full Width",
+      "name": "full_width",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Make testimonials span the full width of the page",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_671d51d0c88c1",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/testimonials"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1696853587
+}

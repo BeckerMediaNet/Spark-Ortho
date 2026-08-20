@@ -1,0 +1,267 @@
+{
+  "key": "group_6643a8d621202",
+  "title": "Block - Logos",
+  "fields": [
+    {
+      "key": "field_6643a8d79a0f0",
+      "label": "Logos",
+      "name": "logos",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Logo",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_logo_image",
+          "label": "Logo Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_logo_link",
+          "label": "Logo Link",
+          "name": "link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "Optional link for this logo",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_6643a90e9a0f1",
+      "label": "Layout",
+      "name": "layout",
+      "aria-label": "",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "slider": "Slider",
+        "grid": "Grid"
+      },
+      "default_value": "grid",
+      "return_format": "value",
+      "allow_null": 0,
+      "allow_in_bindings": 1,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_6787ed4381672",
+      "label": "Columns",
+      "name": "columns",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_6643a90e9a0f1",
+            "operator": "==",
+            "value": "grid"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 6,
+      "min": 1,
+      "max": 12,
+      "allow_in_bindings": 1,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_6787ed4381673",
+      "label": "Desktop Slides Per View",
+      "name": "desktop_slides_per_view",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "Number of logos to show on desktop screens (1200px and above)",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_6643a90e9a0f1",
+            "operator": "==",
+            "value": "slider"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 6,
+      "min": 4,
+      "max": 8,
+      "allow_in_bindings": 1,
+      "step": 1,
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_6787ed4381674",
+      "label": "Autoplay",
+      "name": "autoplay",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Enable automatic sliding of logos",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_6643a90e9a0f1",
+            "operator": "==",
+            "value": "slider"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    },
+    {
+      "key": "field_6787ed4381675",
+      "label": "Autoplay Delay",
+      "name": "autoplay_delay",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Delay between slides in milliseconds (0 = continuous scroll)",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_6643a90e9a0f1",
+            "operator": "==",
+            "value": "slider"
+          },
+          {
+            "field": "field_6787ed4381674",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "min": 0,
+      "max": 10000,
+      "allow_in_bindings": 1,
+      "step": 100,
+      "prepend": "",
+      "append": "ms"
+    },
+    {
+      "key": "field_6787ed4381676",
+      "label": "Show Navigation",
+      "name": "show_navigation",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Show previous/next navigation buttons",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_6643a90e9a0f1",
+            "operator": "==",
+            "value": "slider"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "allow_in_bindings": 1,
+      "message": "",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/logos"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1736961451
+}

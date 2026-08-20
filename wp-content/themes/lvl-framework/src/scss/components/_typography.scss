@@ -1,0 +1,135 @@
+html {
+  //font-size: 18px;
+}
+
+body {
+//   font-family: var(--bs-body-font-family, sans-serif);
+//   font-size: 1rem;
+//   font-weight: 400;
+//   color: var(---bs-body-color, #000);
+
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
+// :where(.has-background) {
+//   padding: calc(var(--bs-gutter-x) * 0.5);
+// }
+
+:where(p, ul, ol) + :where(h1, h2, h3, h4, h5, h6) {
+  margin-top: calc(var(--bs-body-font-size, 1.5rem) * 2);
+}
+
+blockquote {
+  //font-size: 20px;
+  //font-weight: 700;
+  //font-family: $headings-font-family;
+
+  cite {
+    //font-size: var(--bs-body-font-size);
+    //font-style: normal;
+    //font-weight: 400;
+  }
+}
+
+//h1, .h1,
+//h2, .h2,
+//h3, .h3,
+//h4, .h4,
+//h5, .h5,
+//h6, .h6 {
+//  color: var(--bs-body-color, #000);
+//}
+
+//h1,
+//.h1 {
+//  @include fluid-type(576px, 1440px, 36px, 52px);
+//
+//  &.super {
+//    @include fluid-type(576px, 1440px, 44px, 68px);
+//  }
+//}
+//
+//h2,
+//.h2 {
+//  @include fluid-type(576px, 1440px, 33px, 45px);
+//}
+//
+//h3,
+//.h3 {
+//  @include fluid-type(576px, 1440px, 22px, 24px);
+//}
+//
+//h4,
+//.h4 {
+//  @include fluid-type(576px, 1440px, 20px, 22px);
+//}
+//
+//h5,
+//.h5 {
+//  @include fluid-type(576px, 1440px, 18px, 20px);
+//}
+
+//h6,
+//.h6,
+//.leader,
+//.has-lead-font-size {
+//  @include fluid-type(576px, 1440px, 16px, 17px);
+//}
+
+p {
+
+  a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    //color: inherit;
+
+    //&:hover {
+    //	text-decoration: none;
+    //}
+  }
+}
+
+// LIST STYLES
+//
+main li {
+  //margin-bottom: 1.15em;
+}
+
+
+
+
+
+
+
+//ul:where(:not(.block-editor-block-variation-picker__variations):not([class*="acf-"])) {
+//	list-style: none !important;
+//	padding-left: 1.5rem;
+//	// font-size: 1rem;
+//
+//	li:not(.menu-item):not(.nav-item) {
+//		position: relative;
+//
+//		&::before {
+//			content: '—';
+//			position: absolute;
+//			display: inline;
+//			left: -1.25rem;
+//			font-weight: 700;
+//			color: var(--accent-color, $primary-blue);
+//		}
+//
+//		&:not(:last-child) {
+//			margin: 0 0 1em;
+//		}
+//
+//		.block-editor-rich-text__editable {
+//			display: inline-block;
+//		}
+//	}
+//}
+

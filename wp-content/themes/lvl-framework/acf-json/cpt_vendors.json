@@ -1,0 +1,110 @@
+{
+    "key": "group_cpt_vendors_key",
+    "title": "Vendor Options",
+    "fields": [
+        {
+            "key": "field_6584738eb7067",
+            "label": "Include in card-style listings",
+            "name": "full_card",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Set this option to \"yes\" to include this vendor in the main vendor cards with logos. Leave this option set to \"no\" to only include this vendor in the list of additional Vendors.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": [
+                "No",
+                "Yes"
+            ],
+            "default_value": 0,
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_65654c901b50f",
+            "label": "Is this a featured vendor?",
+            "name": "featured_vendor",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Cards for featured vendors will have a green corner marker with a white star.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6584738eb7067",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": [
+                "No",
+                "Yes"
+            ],
+            "default_value": 0,
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_658ca22a80b2c",
+            "label": "Link to individual page",
+            "name": "has_individual_page",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6584738eb7067",
+                        "operator": "==",
+                        "value": "0"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no": "No",
+                "yes": "Yes"
+            },
+            "default_value": "yes",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "vendor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1703717769
+}

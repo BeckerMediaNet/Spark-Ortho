@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lvl/logos",
+	"title": "Logos",
+	"version": "1.0.0",
+	"description": "Display logos or icons in a gallery or slider",
+	"category": "lvl-blocks",
+	"keywords": [
+		"slider",
+		"images",
+		"carousel",
+		"logos"
+	],
+	"icon": "<svg height=\"24\" viewBox=\"0 -960 960 960\" width=\"24\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"m120-200q-33 0-56.5-23.5t-23.5-56.5v-400q0-33 23.5-56.5t56.5-23.5h400q33 0 56.5 23.5t23.5 56.5v400q0 33-23.5 56.5t-56.5 23.5zm600-320q-17 0-28.5-11.5t-11.5-28.5v-160q0-17 11.5-28.5t28.5-11.5h160q17 0 28.5 11.5t11.5 28.5v160q0 17-11.5 28.5t-28.5 11.5zm40-80h80v-80h-80zm-640 320h400v-400h-400zm40-80h320l-105-140-75 100-55-73zm560 160q-17 0-28.5-11.5t-11.5-28.5v-160q0-17 11.5-28.5t28.5-11.5h160q17 0 28.5 11.5t11.5 28.5v160q0 17-11.5 28.5t-28.5 11.5zm40-80h80v-80h-80zm-640 0v-400zm640-320v-80zm0 320v-80z\"\/><\/svg>",
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"fullHeight": false,
+		"html": true,
+		"mode": false
+	},
+	"style": "lvl-block-css-logos",
+	"viewScript": [
+		"lvl-block-js-logos", 
+		"lvl-swiper"
+	],
+	"editorScript": [
+		"lvl-block-js-logos",
+		"lvl-swiper"
+	],
+	"acf": {
+        "mode": "auto",
+        "renderTemplate": "logos.php",
+		"blockVersion": 2
+    }
+}

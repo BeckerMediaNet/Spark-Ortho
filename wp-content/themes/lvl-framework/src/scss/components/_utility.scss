@@ -1,0 +1,617 @@
+@function pxToRem($value) {
+  $remValue: calc($value / 16) + rem;
+  @return $remValue;
+}
+
+@mixin column-count($count) {
+  column-count: 1;
+  column-gap: calc(var(--bs-gutter-x) * 2);
+  break-inside: avoid;
+
+  @if ($count > 2) {
+    @include media-breakpoint-up(xs) {
+      column-count: ceil($count / 3);
+    }
+  }
+
+  @if $count > 1 {
+    @include media-breakpoint-up(sm) {
+      // count half rounded up
+      column-count: ceil($count / 2);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    column-count: $count;
+  }
+
+  li {
+    break-inside: avoid;
+  }
+}
+
+@for $i from 1 through 6 {
+  .column-count-#{$i} {
+    @include column-count($i);
+  }
+}
+
+.no-filter {
+  filter: initial !important;
+}
+
+.are-vertically-aligned-top {
+  align-items: flex-start !important;
+}
+
+.are-vertically-aligned-center {
+  align-items: center !important;
+}
+
+.are-vertically-aligned-bottom {
+  align-items: flex-end !important;
+}
+
+// extra z-index classes (BS has n1 - 3)
+$zs: 9, 99, 999, 9999;
+@each $z in $zs {
+  .z-#{$z} {
+    z-index: $z;
+  }
+}
+
+// min and max widths
+$breakpoints: sm, md, lg, xl;
+$ws: auto, 25, 50, 75, 100;
+@each $w in $ws {
+  .maxw-#{$w} {
+    max-width: if($w == auto, auto, percentage(calc($w / 100))) !important;
+  }
+  .minw-#{$w} {
+    min-width: if($w == auto, auto, percentage(calc($w / 100))) !important;
+  }
+}
+
+@each $w in $ws {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      .maxw-#{$breakpoint}-#{$w} {
+        max-width: if($w == auto, auto, percentage(calc($w / 100))) !important;
+      }
+      .minw-#{$breakpoint}-#{$w} {
+        min-width: if($w == auto, auto, percentage(calc($w / 100))) !important;
+      }
+    }
+  }
+}
+
+// min and max heights
+$breakpoints: sm, md, lg, xl;
+$hs: auto, 25, 50, 75, 100;
+@each $h in $hs {
+  .maxh-#{$h} {
+    max-height: if($h == auto, auto, percentage(calc($h / 100))) !important;
+  }
+  .minh-#{$h} {
+    min-height: if($h == auto, auto, percentage(calc($h / 100))) !important;
+  }
+}
+
+@each $h in $hs {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      .maxh-#{$breakpoint}-#{$h} {
+        max-height: if($h == auto, auto, percentage(calc($h / 100))) !important;
+      }
+      .minh-#{$breakpoint}-#{$h} {
+        min-height: if($h == auto, auto, percentage(calc($h / 100))) !important;
+      }
+    }
+  }
+}
+
+// more widths
+$breakpoints: sm, md, lg, xl;
+$ws: max-content, min-content;
+@each $w in $ws {
+  .w-#{$w} {
+    width: $w !important;
+  }
+}
+
+@each $w in $ws {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      .w-#{$breakpoint}-#{$w} {
+        width: $w !important;
+      }
+    }
+  }
+}
+
+// viewport heights
+$breakpoints: sm, md, lg, xl;
+$hs: 25, 50, 75, 100;
+@each $h in $hs {
+  .vh-#{$h} {
+    height: #{$h}vh !important;
+  }
+}
+
+@each $h in $hs {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      .vh-#{$breakpoint}-#{$h} {
+        height: #{$h}vh !important;
+      }
+    }
+  }
+}
+
+// viewport max heights
+$breakpoints: sm, md, lg, xl;
+$hs: 25, 50, 75, 100;
+@each $h in $hs {
+  .maxvh-#{$h} {
+    max-height: #{$h}vh !important;
+  }
+}
+
+@each $h in $hs {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      .maxvh-#{$breakpoint}-#{$h} {
+        max-height: #{$h}vh !important;
+      }
+    }
+  }
+}
+
+// container fluid breakpoints
+$breakpoints: sm, md, lg, xl;
+@each $breakpoint in $breakpoints {
+  @include media-breakpoint-up($breakpoint) {
+    .container-#{$breakpoint}-fluid {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: calc(var(--bs-gutter-x)*.5);
+      padding-right: calc(var(--bs-gutter-x)*.5);
+      width: 100%;
+      //width: 100% !important;
+      //max-width: 100% !important;
+    }
+  }
+}
+
+// absolute cover mixin
+@mixin absolute-cover($content: "", $background: none, $top:0, $right:0, $bottom:0, $left:0, $all:0 ) {
+  content: "";
+  position: absolute;
+  background: $background;
+  @if $all == 0 {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  } @else {
+    top: $all;
+    right: $all;
+    bottom: $all;
+    left: $all;
+  }
+}
+
+// object fit
+$fits: cover, contain, none;
+@each $fit in $fits {
+  .object-fit--#{$fit} {
+    object-fit: $fit;
+    object-position: center;
+    @if ($fit != none) {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+// object fit position
+$positions: left, center, right, top, bottom;
+@each $position in $positions {
+  .object-position--#{$position} {
+    object-position: $position;
+  }
+}
+
+.ms-first-0:first-child {
+  margin-left: 0 !important;
+}
+
+.me-last-0:first-child {
+  margin-right: 0 !important;
+}
+
+// more color classes
+@each $color, $val in $colors {
+  .bg-#{$color} {
+    background-color: $val;
+  }
+  .text-#{$color} {
+    color: $val;
+  }
+}
+
+.text-inherit {
+  color: inherit;
+}
+
+//@each $gradient, $val in $gradients {
+//  .has-#{$gradient}-background-color {
+//    background: $val;
+//  }
+//}
+
+.text-decoration-none {
+  &, a {
+    text-decoration: none;
+  }
+}
+
+.linked {
+  &::before {
+    transform: scale(1);
+    transition: transform .15s ease-in-out;
+  }
+
+  &:hover,
+  &:focus-within {
+    cursor: pointer;
+
+    &::before {
+      transform: scale(.975);
+    }
+  }
+
+  &:not(.linked-no-style) {
+    transition: transform .15s ease-in-out, box-shadow .3s ease-in-out, filter .15s ease-in-out;
+    backface-visibility: hidden;
+
+    //.img-style-background {
+    //  transform: scale(1);
+    //  transition: transform 1s ease-in-out, box-shadow .3s ease-in-out, filter .15s ease-in-out;
+    //}
+
+    &:hover,
+    &:focus-within {
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      //transform: scale(1.025);
+      transition: transform .15s ease-in-out, box-shadow .15s ease-in-out, filter .15s ease-in-out;
+
+      //&:not(.has-background) {
+        transform: scale(1.025);
+      //}
+
+      //.img-style-background {
+      //  transform: scale(1.15);
+      //  transition: transform .5s ease-in-out, box-shadow .15s ease-in-out, filter .15s ease-in-out;
+      //}
+    }
+
+    &:focus-within {
+      //outline: 2px solid $primary-blue;
+    }
+
+    &:not(.linked-multi) {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &.linked-multi {
+      cursor: default;
+    }
+  }
+}
+
+.sticky-top-most {
+  position: sticky !important;
+  top: var(--header-height-offset, 0);
+  z-index: 99;
+  transition: top .3s ease-in-out;
+}
+
+@include media-breakpoint-up(lg) {
+  .sticky-top-most-lg {
+    position: sticky !important;
+    top: var(--header-height-offset, 0);
+    z-index: 99;
+    transition: top .3s ease-in-out;
+  }
+}
+
+.admin-bar {
+  .sticky-top-most {
+    top: var(--header-height-offset, 32px);
+  }
+}
+
+
+.icon {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+
+  &.icon-xs {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &.icon-sm {
+    height: 1.3125rem;
+    width: 1.3125rem;
+  }
+
+  &.icon-md {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &.icon-lg {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &.icon-xl {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  &.icon-xxl {
+    height: 5rem;
+    width: 5rem;
+  }
+}
+
+figure.w-100 {
+  img {
+    width: 100%;
+  }
+}
+
+.grid-col-span-all {
+  grid-column: 1/-1;
+}
+
+// sass mixin to create list style classes
+@mixin list-style($name, $style) {
+  .list-style-#{$name} {
+    list-style-type: $style;
+  }
+}
+
+// sass map to define list style classes
+$list-styles: (
+        none: none,
+        disc: disc,
+        circle: circle,
+        square: square,
+        decimal: decimal,
+        decimal-leading-zero: decimal-leading-zero,
+        lower-roman: lower-roman,
+        upper-roman: upper-roman,
+        lower-alpha: lower-alpha,
+        upper-alpha: upper-alpha,
+        lower-greek: lower-greek,
+        lower-latin: lower-latin,
+        upper-latin: upper-latin,
+        armenian: armenian,
+        georgian: georgian,
+        inherit: inherit,
+        initial: initial,
+        revert: revert,
+        unset: unset,
+);
+
+
+.list-style-icon-checkmark {
+  //list-style-image: url(escape-svg("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='#{$primary}' class='bi bi-check2-square' viewBox='0 0 16 16'%3E%3Cpath d='M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z'/%3E%3Cpath d='m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0'/%3E%3C/svg%3E"));
+  list-style-type: none;
+
+  > li {
+    margin-bottom: .5em;
+    margin-left: .5rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.75em;
+      top: 0;
+      //background-image: url(escape-svg("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='#{$primary}' preserveAspectRatio='xMidYMid' class='bi bi-check2-square' viewBox='0 0 16 16'%3E%3Cpath d='M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z'/%3E%3Cpath d='m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0'/%3E%3C/svg%3E"));
+      background-image: url(escape-svg("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='b' xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='#{$primary}' preserveAspectRatio='xMidYMid' viewBox='0 0 484.17 430.33'%3E%3Cg id='c'%3E%3Cpath d='m0,231.75c29.04,0,56.87-.15,84.7.2,3.18.04,6.81,2.31,9.41,4.52,22.75,19.24,40.83,42.41,56.16,67.83,1.55,2.56,3.13,5.11,4.72,7.64.16.26.51.4,1.29.97,1.21-2.36,2.45-4.6,3.52-6.92,30.78-66.69,67.1-130.21,109.83-189.96,25.82-36.1,55.08-69.09,91.97-94.42,9.99-6.86,20.71-12.71,31.4-18.44,3.64-1.95,8.22-2.96,12.38-3,25.99-.26,51.98-.13,78.79-.13-.82,1.44-.92,1.95-1.21,2.09-38.97,19.28-70.33,47.83-98.15,80.65-36.59,43.16-65.68,91.34-93.27,140.47-34.21,60.93-63.15,124.22-83.84,191.1-1.18,3.81-2.52,7.58-3.42,11.46-.74,3.15-2.45,4.48-5.58,4.48-26.98-.02-53.97-.06-80.95.05-4.36.02-5.05-2.89-5.98-5.97-9.15-30.46-20.04-60.26-34.01-88.87-16.19-33.15-35.92-63.84-62.47-89.76-4.63-4.52-9.54-8.74-15.27-13.97Z'/%3E%3C/g%3E%3C/svg%3E"));
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      //margin-right: 0.5em;
+      //margin-left: -2.5rem;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+
+    }
+  }
+}
+
+.list-style-icon-brand {
+  list-style-type: none;
+  padding-left: 1rem;
+
+  > li {
+    margin-bottom: .5em;
+    margin-left: .5rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5em;
+      top: .33em;
+      // TODO: Review
+      //background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M0 11.5V0.5H7L0 11.5Z' fill='%23B5121B'/%3E%3C/svg%3E");
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+
+    }
+  }
+}
+
+// loop through list styles and create classes
+@each $name, $style in $list-styles {
+  @include list-style($name, $style);
+}
+
+// mixin to create content-columns-# classes
+@mixin content-columns($columns) {
+  @for $i from 1 through $columns {
+
+    .content-columns-#{$i} {
+      @if ($i > 4) {
+        column-count: $i - 3;
+      } @else {
+        column-count: 1;
+      }
+
+      @if ($i > 3) {
+        @include media-breakpoint-up(sm) {
+          column-count: $i - 2;
+        }
+      }
+
+      @if ($i > 2) {
+        @include media-breakpoint-up(md) {
+          column-count: $i - 1;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        column-count: $i;
+      }
+    }
+  }
+}
+
+// Create column-count utility classes
+$breakpoints: sm, md, lg, xl, xxl;
+$columns: 1, 2, 3, 4;
+
+@each $breakpoint, $min-width in $breakpoints {
+	@each $column in $columns {
+		@include media-breakpoint-up($breakpoint) {
+			.column-count-#{$breakpoint}-#{$column} {
+				column-count: $column !important;
+			}
+		}
+	}
+}
+
+@each $column in $columns {
+	.column-count-#{$column} {
+		column-count: $column !important;
+	}
+}
+
+// loop through list columns and create classes
+@include content-columns(6);
+
+[class*=content-columns-] {
+  column-gap: calc(var(--bs-gutter-x) + 1rem);
+
+  > li {
+    break-inside: avoid;
+  }
+}
+
+// mixin to build classes for color variations
+@each $name,
+$color in $colors {
+  .has-#{$name}-color {
+    color: $color;
+
+    &.has-outline-style {
+      color: rgba(0, 0, 0, 0) !important;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $color;
+    }
+  }
+}
+
+
+[class*="stretch-bg"] {
+  //
+}
+
+.stretch-bg-start {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: inherit;
+    width: 100vw;
+    left: 0;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.stretch-bg-end {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: inherit;
+    width: 100vw;
+    left: 0;
+    height: 100%;
+    top: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .stretch-bg-lg-start {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background: inherit;
+      width: 100vw;
+      left: 0;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  .stretch-bg-lg-end {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background: inherit;
+      width: 100vw;
+      left: 0;
+      height: 100%;
+      top: 0;
+    }
+  }
+}

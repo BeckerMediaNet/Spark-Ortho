@@ -1,0 +1,78 @@
+{
+  "key": "group_locations",
+  "title": "Block - Locations",
+  "fields": [
+    {
+      "key": "field_locations_per_row",
+      "label": "Cards per row",
+      "name": "cards_per_row",
+      "type": "number",
+      "instructions": "",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 3,
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "key": "field_locations_locations",
+      "label": "Location",
+      "name": "locations",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Select the locations for map or leave empty to show all locations.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "location"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search",
+        "taxonomy"
+      ],
+      "elements": "",
+      "min": "",
+      "max": "",
+      "return_format": "id",
+      "bidirectional": 0,
+      "bidirectional_target": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl\/locations"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1713820075
+}

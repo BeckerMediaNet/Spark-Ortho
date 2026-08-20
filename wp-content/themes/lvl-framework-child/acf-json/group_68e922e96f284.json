@@ -1,0 +1,98 @@
+{
+	"key": "group_68e922e96f284",
+	"title": "Team - Details",
+	"fields": [
+		{
+			"key": "field_68e922f445004",
+			"label": "Location",
+			"name": "location",
+			"aria-label": "",
+			"type": "post_object",
+			"instructions": "Select the Doctor's location. You can select multiple locations.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"post_type": ["location"],
+			"post_status": ["publish"],
+			"taxonomy": "",
+			"return_format": "object",
+			"multiple": 1,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"bidirectional": 0,
+			"ui": 1,
+			"bidirectional_target": []
+		},
+		{
+			"key": "field_68e9236f45005",
+			"label": "Last Name",
+			"name": "last_name",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "This allows team members to be sorted alphabetically by last name.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"allow_in_bindings": 0,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_68e95599681e0",
+			"label": "Post Card Image",
+			"name": "post_card_image",
+			"aria-label": "",
+			"type": "image",
+			"instructions": "Choose an image to use instead of the featured images in post cards block.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array",
+			"library": "all",
+			"min_width": "",
+			"min_height": "",
+			"min_size": "",
+			"max_width": "",
+			"max_height": "",
+			"max_size": "",
+			"mime_types": "",
+			"allow_in_bindings": 0,
+			"preview_size": "medium"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "team"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "side",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"modified": 1760122319
+}
