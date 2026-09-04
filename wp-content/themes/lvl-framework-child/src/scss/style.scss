@@ -1,0 +1,49 @@
+// BOOTSTRAP ESSENTIALS + CUSTOMIZATION
+@import "bare-bs-necessities";
+
+// COMPONENTS
+@import "components/_utility";
+@import "components/_wordpress";
+@import "components/_typography";
+@import "components/_buttons";
+@import "components/_forms";
+@import "components/_base";
+@import "components/_navigation";
+@import "components/_blocks";
+@import "components/_modals";
+@import "components/_header";
+@import "components/_footer";
+@import "components/_search";
+@import "components/_singles";
+@import "components/_migrated";
+@import "components/_archives";
+@import "components/_shortcodes";
+
+[data-bs-toggle] * {
+  pointer-events: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ti-widget-container {
+  .ti-with-tooltip {
+    color: $brand-black !important;
+  }
+}
+
+.ti-widget-container {
+  .ti-read-more-active {
+     opacity: 1 !important;
+      color: $brand-black !important;
+  }
+}

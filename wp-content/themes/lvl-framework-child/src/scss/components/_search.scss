@@ -1,0 +1,46 @@
+#searchModal {
+  .modal-content {
+    background: none;
+    border: none;
+  }
+}
+
+.search-form {
+  .input-group {
+    input {
+      border: 1px solid #808080;
+      border-radius: 0;
+    }
+  }
+}
+
+.search-results {
+  .search-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    > a {
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    .page-numbers {
+      position: relative;
+
+      &.current {
+        font-weight: 700;
+      }
+    }
+  }
+}

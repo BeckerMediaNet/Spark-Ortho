@@ -1,0 +1,576 @@
+@import "../../../src/scss/bare-bs-necessities";
+
+.block--dentist-cards {
+  --card-count: 3;
+
+  @include media-breakpoint-down(lg) {
+    --card-count: 2 !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    --card-count: 1 !important;
+  }
+
+  .dentist-cards-wrapper {
+    width: 100%;
+
+    .filter-bar {
+      .dropdown-toggle {
+        position: relative;
+        width: 100%;
+        min-width: 250px;
+        padding: 0.75rem;
+        background-color: $brand-white;
+        border: 1px solid $brand-secondary;
+        border-radius: 0;
+        font-size: 1rem;
+        line-height: inherit;
+        text-align: left;
+
+        &::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none"><path d="M13.5 4L7.5 10L1.5 4" stroke="%23071C2C" stroke-width="2"/></svg>');
+          position: absolute;
+          right: 0.75rem;
+          top: 50%;
+          border: none;
+          transform: translateY(-50%);
+        }
+
+        &[aria-expanded="true"] {
+          &::after {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+      }
+
+      .dropdown-menu {
+        width: 100%;
+        margin-top: 0;
+        border: 1px solid $brand-secondary;
+        border-top: none;
+        border-radius: 0;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: $brand-white;
+        border: 1px solid $brand-secondary;
+        border-radius: 0;
+        color: inherit;
+        text-align: left;
+        line-height: inherit;
+      }
+    }
+
+    .btn-filter {
+      display: inline-flex;
+      gap: 0;
+      align-items: center;
+      min-width: 0px;
+      margin: 0.5rem 0.5rem 0 0;
+      padding: 0.45rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      background-color: $brand-secondary;
+      color: $brand-white;
+      align-items: flex-start;
+
+      &::after {
+        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" fill="white"/></svg>');
+        display: block;
+        height: 1rem;
+        width: 1rem;
+        margin-left: 0.5rem;
+        padding: 2px;
+      }
+    }
+
+    .filter-reset {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .dentist-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--card-count), 1fr);
+    grid-auto-flow: row;
+    gap: 2rem;
+
+    .no-results {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+
+  .dentist-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 2px;
+    transition: all 0.3s ease;
+    background: $brand-white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    flex-basis: calc(
+      (
+          100% - (var(--card-count) - 1) *
+            calc(var(--wp--style--block-gap) + 20px)
+        ) / var(--card-count)
+    );
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+      .dentist-card-hover-content {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .dentist-card-inner {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dentist-card-image {
+      position: relative;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      .dentist-card-img {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        transition: transform 0.3s ease;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+
+      .dentist-card-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: rgba($brand-white, 0.7);
+
+        svg {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+    .dentist-card-content {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background: $brand-white;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 2;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .dentist-card-meta {
+      margin-bottom: 0.75rem;
+
+      .dentist-location,
+      .dentist-specialty {
+        font-size: 14px;
+        color: #666666;
+        font-weight: 300;
+        margin-bottom: 0;
+        line-height: 1.2;
+      }
+
+      .dentist-specialty {
+        margin-top: 0.5rem;
+      }
+
+      .dentist-location {
+        margin-top: 0.25rem;
+      }
+    }
+
+    .dentist-card-title {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0;
+      color: $brand-secondary;
+
+      .dentist-card-link {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $brand-primary;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+        }
+      }
+    }
+
+    .dentist-card-hover-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $brand-white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100%);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 3;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      // Custom scrollbar styling
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba($brand-gray, 0.1);
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba($brand-secondary, 0.3);
+        border-radius: 3px;
+
+        &:hover {
+          background: rgba($brand-secondary, 0.5);
+        }
+      }
+
+      .dentist-card-meta {
+        margin-bottom: 0.75rem;
+        flex-shrink: 0;
+      }
+
+      .dentist-card-excerpt {
+        font-size: 1;
+        line-height: 1.5;
+        color: $brand-gray;
+        margin: 1.5rem 0;
+        flex-shrink: 0;
+      }
+
+      .dentist-card-title {
+        flex-shrink: 0;
+      }
+
+      .btn {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        z-index: 4;
+        flex-shrink: 0;
+        margin-top: auto;
+
+        svg {
+          transition: transform 0.3s ease;
+        }
+
+        &:hover svg {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  .dentist-card-load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .load-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .load-more-spinner {
+        animation: spin 1s linear infinite;
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }
+
+  .dentist-card-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: $brand-gray;
+
+    p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+  }
+
+  &.is-style-alternating-bg-colors {
+    .dentist-card {
+      border-radius: 8px;
+      box-shadow: none;
+
+      &.bg-lime-green {
+        background-color: $brand-tertiary;
+      }
+
+      &.bg-light-blue {
+        background-color: $brand-light-blue;
+      }
+
+      &.bg-light-aqua {
+        background-color: $brand-primary;
+      }
+
+      &:not(.bg-lime-green):not(.bg-light-blue):not(.bg-light-aqua) {
+        &:nth-child(3n + 1) {
+          background-color: $brand-tertiary;
+        }
+
+        &:nth-child(3n + 2) {
+          background-color: $brand-light-blue;
+        }
+
+        &:nth-child(3n + 3) {
+          background-color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+// Editor specific styles
+.editor-styles-wrapper {
+  .wp-block {
+    .wp-block-lvl-dentist-cards {
+      flex-basis: calc(
+        (
+            100% - (var(--card-count) - 1) *
+              calc(var(--wp--style--block-gap) + 20px)
+          ) / var(--card-count)
+      );
+      margin-block-start: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 0 !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    .block--dentist-cards {
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden;
+
+      .dentist-cards-grid {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: calc(var(--wp--style--block-gap) + 20px);
+      }
+
+      .dentist-card {
+        flex-basis: calc(
+          (
+              100% - (var(--card-count) - 1) *
+                calc(var(--wp--style--block-gap) + 20px)
+            ) / var(--card-count)
+        );
+        margin-block-start: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+
+        &:hover {
+          transform: none;
+
+          .dentist-card-content {
+            transform: none;
+            background-color: transparent;
+          }
+
+          .dentist-card-hover-content {
+            opacity: 0;
+            visibility: hidden;
+            background-color: transparent;
+            transform: translateY(100%);
+          }
+        }
+      }
+
+      .dentist-card-inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100% !important;
+        overflow: hidden;
+
+        > :first-child {
+          margin-block-start: 0;
+        }
+
+        > :last-child {
+          margin-block-end: 0;
+        }
+
+        > * {
+          margin-block-start: var(--wp--style--block-gap);
+          margin-block-end: 0;
+        }
+
+        .dentist-card-content {
+          margin-top: auto;
+        }
+      }
+
+      // Alternating background colors for editor
+      &.is-style-alternating-bg-colors {
+        .dentist-card {
+          border-radius: 8px;
+          box-shadow: none;
+
+          &[data-bg-color="lime-green"] {
+            background-color: $brand-tertiary;
+          }
+
+          &[data-bg-color="light-blue"] {
+            background-color: $brand-light-blue;
+          }
+
+          &[data-bg-color="light-aqua"] {
+            background-color: $brand-primary;
+          }
+
+          &:not([data-bg-color]) {
+            &:nth-child(3n + 1) {
+              background-color: $brand-tertiary;
+            }
+
+            &:nth-child(3n + 2) {
+              background-color: $brand-light-blue;
+            }
+
+            &:nth-child(3n + 3) {
+              background-color: $brand-primary;
+            }
+          }
+
+          .dentist-card-image {
+            &.bg-lime-green {
+              background-color: $brand-tertiary;
+            }
+
+            &.bg-light-blue {
+              background-color: $brand-light-blue;
+            }
+
+            &.bg-light-aqua {
+              background-color: $brand-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Equal height cards - ensure consistent height across all cards
+  .dentist-cards-grid {
+    align-items: stretch; // Stretch all cards to same height
+  }
+
+  .dentist-card {
+    // Ensure content sections take up available space appropriately
+    .dentist-card-content {
+      min-height: 120px; // Minimum content area height
+
+      .dentist-card-title {
+        min-height: 2.6rem; // Space for 1-2 lines of title
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .dentist-card-meta {
+        min-height: 3rem; // Space for specialty + location or just one
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .dentist-specialty,
+        .dentist-location {
+          min-height: 1.2rem; // Consistent line height even if empty
+        }
+      }
+    }
+
+    .dentist-card-hover-content {
+      .dentist-card-title {
+        min-height: 2.6rem; // Match regular content
+      }
+
+      .dentist-card-meta {
+        min-height: 3rem; // Match regular content
+      }
+
+      .dentist-card-excerpt {
+        min-height: 3rem; // Consistent space for excerpt, even if short
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

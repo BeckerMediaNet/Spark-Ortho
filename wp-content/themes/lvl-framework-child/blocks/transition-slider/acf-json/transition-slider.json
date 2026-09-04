@@ -1,0 +1,136 @@
+{
+  "key": "group_6825f3c0a1b2c3",
+  "title": "Block - Transition Slider",
+  "fields": [
+    {
+      "key": "field_6825f3c0b2c3d4",
+      "label": "Before Image",
+      "name": "before_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "The image shown on the left (revealed by dragging right).",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_6825f3c0c3d4e5",
+      "label": "After Image",
+      "name": "after_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "The image shown on the right (revealed by dragging left).",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_6825f3c0d4e5f6",
+      "label": "Before Label",
+      "name": "before_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Label shown over the before (left) image. Defaults to \"Before\".",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Before",
+      "maxlength": "",
+      "placeholder": "Before",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_6825f3c0e5f607",
+      "label": "After Label",
+      "name": "after_label",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Label shown over the after (right) image. Defaults to \"After\".",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "After",
+      "maxlength": "",
+      "placeholder": "After",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_6825f3c0f60718",
+      "label": "Start Position",
+      "name": "start_position",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Initial position of the divider handle (0–100). Defaults to 50.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "prepend": "",
+      "append": "%"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "lvl/transition-slider"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1747094400
+}

@@ -1,0 +1,61 @@
+// Location Details Shortcode Styling
+.single-location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+
+  .location-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      color: currentColor;
+      margin-right: 0.25rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    a {
+      color: currentColor;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+
+    .location-detail-item {
+      font-size: 0.9rem;
+
+      .icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .location-detail-item {
+      font-size: 0.85rem;
+      gap: 0.25rem;
+
+      .icon {
+        align-self: flex-start;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}

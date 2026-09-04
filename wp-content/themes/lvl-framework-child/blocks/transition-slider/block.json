@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "lvl/transition-slider",
+  "title": "Transition Slider",
+  "version": "1.0.0",
+  "description": "Before/after image comparison slider using drag handle.",
+  "category": "lvl-blocks",
+  "keywords": ["slider", "before", "after", "comparison", "transition", "beer"],
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\"><path d=\"M360-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z\"/><path d=\"M160-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z\"/></svg>",
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "html": false,
+    "mode": false
+  },
+  "style": "lvl-block-css-transition-slider",
+  "viewScript": "lvl-block-js-transition-slider",
+  "editorScript": "lvl-block-js-transition-slider",
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "transition-slider.php",
+    "blockVersion": 2
+  }
+}

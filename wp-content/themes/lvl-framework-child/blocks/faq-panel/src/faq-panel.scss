@@ -1,0 +1,119 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+[data-bs-theme="light"] {
+  --block-faq-panel-border: #{$brand-primary};
+  --block-faq-panel-border-expanded: #{$brand-secondary};
+}
+
+[data-bs-theme="dark"] {
+  --block-faq-panel-border: #{$brand-secondary};
+  --block-faq-panel-border-expanded: #{$brand-secondary};
+}
+
+.block--faq-panel {
+  .faq-accordion {
+    .faq-item {
+      padding: 2rem 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 0 !important;
+      border-top: 1px solid var(--block-faq-panel-border) !important;
+      color: inherit;
+
+      &:last-child {
+        border-bottom: 1px solid var(--block-faq-panel-border);
+      }
+
+      &:has(.accordion-button[aria-expanded="true"]) {
+        border-top-color: var(--block-faq-panel-border-expanded) !important;
+      }
+
+      .accordion-header {
+        position: relative;
+
+        .accordion-button {
+          position: relative;
+          padding: 0 3rem 0 0;
+          border-radius: 0 !important;
+          background-color: transparent !important;
+          box-shadow: none;
+          color: inherit;
+          font-size: 1.25rem;
+          font-weight: 600;
+
+          &:focus-visible {
+            box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+          }
+
+          &::after {
+            content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m23.3337 14.5833-5.8334 5.8333-5.8333-5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+            position: absolute;
+            top: 50%;
+            right: 0;
+            height: 30px;
+            width: 30px;
+            transform: translateY(-50%);
+            background: none;
+          }
+
+          &[aria-expanded="true"] {
+            &::after {
+              content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m11.6668 20.4167 5.8334-5.8333 5.8333 5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+            }
+          }
+        }
+      }
+
+      .accordion-body {
+        padding: 1rem 3rem 1rem 0;
+        line-height: 1.3;
+
+        p {
+          font-size: 1.125rem;
+          line-height: 1.3;
+        }
+
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .faq-empty {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+
+    p {
+      margin: 0;
+      color: #6c757d;
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .block--faq-panel {
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    .faq-item {
+      margin-bottom: 1rem;
+
+      .accordion-collapse {
+        display: block !important;
+      }
+
+      .accordion-body {
+        padding: 1rem 3rem 1rem 0;
+        line-height: 1.3;
+
+        p {
+          font-size: 1.125rem;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}

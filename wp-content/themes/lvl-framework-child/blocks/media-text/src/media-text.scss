@@ -1,0 +1,298 @@
+@import '../../../src/scss/bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+.block--media-text {
+	position: relative;
+	float: none;
+	margin: 0 !important;
+
+	&.has-background {
+		// background-color: transparent !important;
+	}
+
+	&[class*='is-style-pattern'] {
+
+		&::before {
+			z-index: 1;
+			transform: skewX(calc(var(--skew-angle) * -1)) !important;
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.background {
+		position: absolute !important;
+		top: 0;
+		z-index: 0;
+		width: 100vw;
+		height: 100%;
+	}
+
+	.inner-wrapper {
+		flex: 1 1 50%;
+		width: 100%;
+	}
+
+	.media {
+		flex: 1 1 50%;
+		height: 100%;
+		width: 100%;
+		overflow: clip;
+
+		> * {
+			position: relative;
+			display: block;
+			left: -8%;
+			width: 116%;
+			height: 100%;
+			object-fit: cover;
+			aspect-ratio: 3 / 2;
+		}
+
+		&.has-media-video {
+			cursor: pointer;
+
+			&::before {
+				content: url('data:image/svg+xml; utf8, <svg fill="none" height="140" viewBox="0 0 140 140" width="140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="140" width="140" x="0" y="0"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="10"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/><feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_271_97157"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_271_97157" mode="normal" result="shape"/></filter><g filter="url(%23a)"><circle cx="70" cy="70" fill="%23fff" r="50"/></g><path d="m94.5 68.2679c1.3333.7699 1.3333 2.6944 0 3.4642l-35.25 20.3516c-1.3333.7697-3-.1925-3-1.7321v-40.7032c0-1.5396 1.6667-2.5018 3-1.732z" fill="%23133155"/></svg>');
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 3;
+				opacity: .8;
+				transform: translate(-50%, -50%) skewX(calc(var(--skew-angle) * -1));
+				transform-origin: top left;
+				transition: transform .3s ease-out, opacity .3s ease-out;
+			}
+
+			&:hover {
+
+				&::before {
+					opacity: 1;
+					transform: scale(1.05) translate(-50%, -50%) skewX(calc(var(--skew-angle) * -1));
+				}
+			}
+		}
+	}
+
+	&:not(.alignleft):not(.alignright),
+	&.alignleft {
+		--skew-angle: -8deg;
+
+		transform: skewX(var(--skew-angle));
+
+		&[class*='is-style-pattern'] {
+
+			&::before {
+				inset: 0 4% 0 auto;
+			}
+
+			&.is-style-pattern-1::before,
+			&.is-style-pattern-8::before {
+				transform: skewX(calc(var(--skew-angle) * -2)) !important;
+			}
+		}
+
+		.background {
+			right: 0;
+		}
+
+		.wrapper {
+			transform: skewX(calc(var(--skew-angle) * -1));
+
+			.inner-wrapper {
+				padding: 3rem 5% 3rem 0;
+			}
+
+			.media {
+				transform: skewX(var(--skew-angle));
+
+				@include media-breakpoint-up(lg) {
+					margin-right: -1px;
+				}
+
+				> * {
+					transform: skewX(calc(var(--skew-angle) * -1));
+				}
+			}
+		}
+	}
+
+	&.alignright {
+		--skew-angle: 8deg;
+
+		transform: skewX(var(--skew-angle));
+
+		&[class*='is-style-pattern'] {
+
+			&::before {
+				inset: 0 auto 0 4%;
+			}
+
+			&.is-style-pattern-1::before,
+			&.is-style-pattern-8::before {
+				transform: translateX(-50%) skewX(0) !important;
+			}
+		}
+
+		.background {
+			left: 0;
+		}
+
+		.wrapper {
+			flex-direction: row-reverse;
+			transform: skewX(calc(var(--skew-angle) * -1));
+
+			.inner-wrapper {
+				padding: 3rem 0 3rem 5%;
+			}
+
+			.media {
+				transform: skewX(var(--skew-angle));
+
+				@include media-breakpoint-up(lg) {
+					margin-left: -1px;
+				}
+				
+
+				> * {
+					transform: skewX(calc(var(--skew-angle) * -1));
+				}
+			}
+		}
+	}
+
+	@include media-breakpoint-down(lg) {
+		--skew-angle: 0deg !important;
+
+		.background {
+			width: 100%;
+		}
+
+		.wrapper {
+			flex-direction: column !important;
+			margin: 0 !important;
+		}
+
+		&:not(.alignleft):not(.alignright),
+		&.alignleft,
+		&.alignright {
+
+			&::before {
+				inset: 0 !important;
+				width: 100%;
+			}
+
+			.wrapper {
+
+				.inner-wrapper {
+					padding: 3rem var(--wp--style--block-gap);
+				}
+			}
+		}
+	}
+}
+
+.video-player {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	background-color: rgba(0, 0, 0, .85);
+	display: none;
+	opacity: 0;
+	//transition: opacity .3s ease-out;
+
+	animation: fadeInBackground .5s ease-in;
+
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	gap: 1rem;
+
+	&.expanded {
+		display: flex;
+		opacity: 1;
+	}
+
+	>iframe {
+		width: 80%;
+		aspect-ratio: 16 / 9;
+		height: auto;
+		max-height: 80%;
+		background: black;
+		margin-bottom: 2%;
+
+		animation: stretchWidth-80 .5s ease-out;
+
+	}
+
+	@include media-breakpoint-down(sm) {
+		padding: 5px;
+		animation: fadeInBackground .3s ease-in;
+
+		>iframe {
+			width: 98%;
+			margin-bottom: 0;
+			max-height: 90%;
+
+			animation: stretchWidth-98 .3s ease-out;
+		}
+	}
+
+	.close-- {
+		position: absolute;
+		top: -2.5rem;
+		right: 0;
+		background: none;
+		border: none;
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+}
+
+.editor-styles-wrapper {
+
+	.wp-block-lvl-media-text {
+		height: 100%;
+		background-color: transparent !important;
+	}
+
+	.block--media-text {
+		height: 100%;
+
+		&::before {
+			z-index: 2;
+		}
+
+		&.alignleft {
+
+			&::before {
+				inset: 0 4% 0 auto !important;
+			}
+		}
+
+		&.alignright {
+
+			&::before {
+				inset: 0 0 0 4% !important;
+			}
+		}
+
+		.wrapper {
+			z-index: 2 !important;
+		}
+
+		.media {
+
+			> * {
+				max-width: none;
+			}
+		}
+	}
+}

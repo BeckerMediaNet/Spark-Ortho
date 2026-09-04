@@ -1,0 +1,128 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+[data-bs-theme="light"] {
+  --block-tab-panel-border: #{$brand-secondary}; //var(--bs-gray-200);
+  --block-tab-panel-border-expanded: #{$brand-secondary};
+}
+
+[data-bs-theme="dark"] {
+  --block-tab-panel-border: #{$brand-secondary}; //var(--bs-gray-200);
+  --block-tab-panel-border-expanded: #{$brand-secondary};
+}
+
+.block--nav-tab-panel {
+  @include media-breakpoint-down(md) {
+    display: block !important;
+    opacity: 1 !important;
+    // padding: 1rem 0;
+    border: none;
+    border-radius: 0 !important;
+    // border-top: 1px solid var(--block-tab-panel-border) !important;
+    color: inherit;
+
+    // &:last-child {
+    // 	border-bottom: 1px solid var(--block-tab-panel-border);
+    // }
+
+    // &:has(.accordion-button[aria-expanded="true"]) {
+    // 	border-top-color: var(--block-tab-panel-border-expanded) !important;
+    // }
+  }
+
+  > .accordion-header {
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    .accordion-button {
+      position: relative;
+      padding: 0 3rem 0 0;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      box-shadow: none;
+      font-weight: 600;
+      color: inherit;
+
+      &:focus {
+        box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+      }
+
+      &::after {
+        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M15 8V22" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22 15H8" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/></svg>');
+        position: absolute;
+        top: 50%;
+        right: 0;
+        height: 30px;
+        width: 30px;
+        transform: translateY(-50%);
+        background: none;
+      }
+
+      &[aria-expanded="true"] {
+        &::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M22 15H8" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/></svg>');
+        }
+      }
+    }
+
+    // &::after {
+    // 	content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M15 8V22" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22 15H8" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/></svg>');
+    // 	position: absolute;
+    // 	top: 50%;
+    // 	right: 0;
+    // 	height: 30px;
+    // 	width: 30px;
+    // 	transform: translateY(-50%);
+    // 	background: none;
+    // }
+
+    // &[aria-expanded="true"] {
+
+    // 	&::after {
+    // 		content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M22 15H8" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/></svg>');
+    // 	}
+    // }
+  }
+
+  > .accordion-collapse {
+    padding: 1.75rem;
+
+    @include media-breakpoint-up(md) {
+      display: block !important;
+    }
+
+    .accordion-body {
+      @include media-breakpoint-down(md) {
+        padding-top: 0;
+      }
+
+      .wp-block-columns {
+        &.is-layout-flex {
+          gap: var(--wp--style--block-gap);
+        }
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .wp-block-wmx-nav-tab-panel {
+    overflow: visible !important;
+  }
+
+  .block--nav-tab-panel {
+    display: block !important;
+    margin-bottom: 2rem;
+    opacity: 1 !important;
+
+    &::before {
+      content: attr(data-title);
+      position: absolute;
+      left: -20%;
+      top: 0;
+      font-weight: 700;
+    }
+  }
+}

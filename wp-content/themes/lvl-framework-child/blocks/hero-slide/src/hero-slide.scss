@@ -1,0 +1,68 @@
+@import '../../../src/scss/bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+.block--hero-slide {
+	position: relative;
+	height: auto !important;
+	background-image: none !important;
+	transition-property: opacity;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+
+		@include media-breakpoint-down(lg) {
+			flex-direction: column;
+			gap: 0;
+		}
+
+		.content {
+			position: relative;
+			flex: 1 0 50%;
+			padding: 3rem 0;
+		}
+	
+		.image {
+			flex: 1 0 50vw;
+			align-self: stretch;
+			transform: skewX(-8deg);
+			overflow: clip;
+
+			@include media-breakpoint-down(lg) {
+				margin: 0 calc((100vw - 100%) / -2);
+				transform: none;
+			}
+	
+			img {
+				display: block;
+				height: 100%;
+				width: 100%;
+				aspect-ratio: 3 / 2;
+				object-fit: cover;
+				transform: skewX(8deg);
+				transform-origin: bottom right;
+
+				@include media-breakpoint-down(lg) {
+					transform: none;
+					
+				}
+			}
+		}
+	}
+
+	.slide {
+		position: relative;
+		z-index: 1;
+		height: 100%;
+	}
+}
+
+.editor-styles-wrapper {
+
+	.wp-block-lvl-hero-slide {
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+}

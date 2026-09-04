@@ -1,0 +1,34 @@
+//==============================================================================
+// DIMENSIONS
+//==============================================================================
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem !default;
+$spacers: (
+        0: 0,
+        1: $spacer * .25,
+        2: $spacer * .5,
+        3: $spacer,
+        4: $spacer * 1.5,
+        5: $spacer * 3,
+        6: $spacer * 5,
+        7: $spacer * 7,
+        8: $spacer * 9,
+        9: $spacer * 11,
+        10: $spacer * 13,
+) !default;
+// scss-docs-end spacer-variables-maps
+
+// scss-docs-start position-map
+$position-values: (
+        0: 0,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        n100: -100%,
+        n75: -75%,
+        n50: -50%,
+        n25: -25%,
+) !default;
+// scss-docs-end position-map

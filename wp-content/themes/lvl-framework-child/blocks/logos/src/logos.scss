@@ -1,0 +1,152 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--logos {
+  --block-gallery-arrow-color: currentColor;
+  --block-gallery-bullet: transparent;
+  --block-gallery-bullet-active: currentColor;
+  --block-gallery-bullet-border: currentColor;
+  --block-gallery-bullet-size: 12px;
+  --block-gallery-bullet-spacing: 1rem;
+
+  position: relative;
+
+  &[data-layout="slider"] {
+    .logos {
+      a {
+        display: block;
+        transition: all 0.2s ease;
+        height: 100%;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+          opacity: 0.8;
+
+          img {
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+          }
+        }
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+          object-position: center;
+          max-height: 300px;
+        }
+      }
+    }
+
+    .logos-navigation {
+      width: 100%;
+      position: absolute;
+      bottom: 1rem;
+      z-index: 10;
+
+      .navigation-buttons-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: $brand-red;
+        padding: 8px 15px;
+        border-radius: 48px;
+
+        .drag-text {
+          font-weight: 700;
+        }
+        button {
+          background: transparent;
+          border: none;
+          padding: 0;
+
+          &:active,
+          &:focus {
+            outline: 2px solid $brand-gray;
+          }
+        }
+      }
+    }
+  }
+
+  &[data-layout="grid"] {
+    // --grid-cols: 5;
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+
+      .logo {
+        flex-basis: calc((100% / 2) - (2rem - (2rem / 2)));
+        border-radius: 1rem;
+        overflow: hidden;
+
+        @include media-breakpoint-up(lg) {
+          flex-basis: calc(
+            (100% / var(--grid-cols)) - (2rem - (2rem / var(--grid-cols)))
+          );
+        }
+
+        a,
+        img {
+          aspect-ratio: 4/3;
+          height: auto;
+          width: 100%;
+          min-height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+
+        a {
+          display: block;
+          transition: opacity 0.2s ease;
+
+          &:hover,
+          &:focus {
+            opacity: 0.8;
+          }
+
+          &:focus {
+            outline: 2px solid $brand-gray;
+            outline-offset: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-style-alternating-bg-colors {
+    .logo {
+      border-radius: 8px;
+
+      &.bg-primary {
+        background-color: $brand-primary;
+      }
+
+      &.bg-secondary {
+        background-color: $brand-secondary;
+      }
+
+      &.bg-red {
+        background-color: $brand-red;
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .block--logos {
+    .logos {
+      pointer-events: none;
+    }
+  }
+}

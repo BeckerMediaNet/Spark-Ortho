@@ -1,0 +1,76 @@
+@import '../../../src/scss/bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+.block--locations {
+  --card-count: 4;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 0;
+
+    > .card-inner {
+      flex: 1 1 var(--card-width, 100%);
+      max-width: var(--card-width, 100%);
+      align-self: stretch;
+      //height: auto !important;
+      padding: 0 calc(.5 * var(--bs-gutter-x));
+
+      @include media-breakpoint-up(md) {
+        --card-width: 50%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        --card-width: calc(100% / (var(--card-count, 4) - 1))
+      }
+
+      @include media-breakpoint-up(xl) {
+        --card-width: calc(100% / var(--card-count, 4));
+      }
+
+      .card-body {
+        height: 100%;
+      }
+    }
+  }
+
+  .card-linkedin {
+    float: right;
+    display: inline-block;
+    background-color: var(--bs-secondary);
+    color: var(--bs-white);
+    padding: .4rem;
+    border-radius: 50%;
+    transition: border-radius .15s ease-in-out;
+
+    &:hover {
+      border-radius: var(--bs-border-radius);
+    }
+
+    svg {
+      width: .8rem;
+      height: .8rem;
+      display: block;
+    }
+
+  }
+}
+
+
+.editor-styles-wrapper {
+
+  .block--locations {
+    --card-width: 100%;
+
+    @include media-breakpoint-up(md) {
+      --card-width: calc(100% / max(1, (var(--card-count, 4) - 2)))
+    }
+
+    @include media-breakpoint-up(lg) {
+      --card-width: calc(100% / (var(--card-count, 4) - 1))
+    }
+
+    @include media-breakpoint-up(xl) {
+      --card-width: calc(100% / var(--card-count, 4));
+    }
+  }
+}

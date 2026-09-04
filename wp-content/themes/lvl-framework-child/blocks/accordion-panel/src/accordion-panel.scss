@@ -1,0 +1,81 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+[data-bs-theme="light"] {
+  --block-accordion-panel-border: #{$brand-primary};
+  --block-accordion-panel-border-expanded: #{$brand-secondary};
+}
+
+[data-bs-theme="dark"] {
+  --block-accordion-panel-border: #{$brand-secondary};
+  --block-accordion-panel-border-expanded: #{$brand-secondary};
+}
+
+.block--accordion-panel {
+  padding: 2rem 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0 !important;
+  border-top: 1px solid var(--block-accordion-panel-border) !important;
+  color: inherit;
+
+  &:last-child {
+    border-bottom: 1px solid var(--block-accordion-panel-border);
+  }
+
+  &:has(.accordion-button[aria-expanded="true"]) {
+    border-top-color: var(--block-accordion-panel-border-expanded) !important;
+  }
+
+  .accordion-header {
+    position: relative;
+
+    .accordion-button {
+      position: relative;
+      padding: 0 3rem 0 0;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      box-shadow: none;
+      color: inherit;
+
+      &:focus-visible {
+        box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+      }
+
+      &::after {
+        content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m23.3337 14.5833-5.8334 5.8333-5.8333-5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+        position: absolute;
+        top: 50%;
+        right: 0;
+        height: 30px;
+        width: 30px;
+        transform: translateY(-50%);
+        background: none;
+      }
+
+      &[aria-expanded="true"] {
+        &::after {
+          content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="m11.6668 20.4167 5.8334-5.8333 5.8333 5.8333" stroke="%231a9ed9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
+        }
+      }
+    }
+  }
+
+  .accordion-body {
+    padding: 1rem 3rem 1rem 0;
+  }
+}
+
+.editor-styles-wrapper {
+  .block--accordion-panel {
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    .accordion-collapse {
+      display: block !important;
+    }
+
+    .accordion-body {
+      padding: 1rem 3rem 1rem 0;
+    }
+  }
+}

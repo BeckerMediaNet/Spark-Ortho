@@ -1,0 +1,42 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--table-of-contents {
+  .table-of-contents {
+    ul {
+      padding-inline-start: 32px;
+
+      li {
+        a {
+          font-size: 0.9rem;
+          line-height: 1;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .block--table-of-contents {
+    .editor-preview-message {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background-color: #f8f9fa;
+      border: 1px dashed #dee2e6;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #6c757d;
+        font-style: italic;
+      }
+    }
+  }
+}

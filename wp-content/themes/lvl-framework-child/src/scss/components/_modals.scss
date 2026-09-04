@@ -1,0 +1,16 @@
+.modal-backdrop {
+	--bs-backdrop-bg: #{$brand-red};
+	--bs-backdrop-opacity: 0.9;
+}
+
+#searchModal {
+
+	.close {
+		position: absolute;
+		top: -2rem;
+		right: 0;
+		padding: 0;
+		background-color: transparent;
+		border: none;
+	}
+}

@@ -1,0 +1,35 @@
+footer {
+  .container {
+    max-width: 1280px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:not(.wp-block-button__link) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // .wp-block-social-links {
+  //   .wp-block-social-link.wp-social-link {
+  //     .wp-block-social-link-anchor {
+  //       color: $brand-secondary;
+  //       fill: $brand-secondary;
+
+  //       &:hover,
+  //       &:focus,
+  //       &:active {
+  //         color: $brand-secondary;
+  //         fill: $brand-secondary;
+  //       }
+  //     }
+  //     svg {
+  //       width: 32px;
+  //       height: 32px;
+  //     }
+  //   }
+  // }
+}

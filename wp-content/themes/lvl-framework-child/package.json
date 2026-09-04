@@ -38,6 +38,7 @@
 		"@popperjs/core": "^2.11.8",
 		"@wordpress/block-editor": "^12.6.0",
 		"aos": "^2.3.4",
+		"beerslider": "^1.0.3",
 		"bootstrap": "^5.3.0",
 		"countup.js": "^2.3.2",
 		"jquery": "^3.6.1",

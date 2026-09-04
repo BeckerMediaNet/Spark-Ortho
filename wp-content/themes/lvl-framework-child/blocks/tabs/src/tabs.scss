@@ -1,0 +1,238 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--tabs {
+  .row {
+    margin: 0;
+  }
+
+  .nav-tabs-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 calc(var(--bs-gutter-x) / 2) 0;
+    flex: 0 0 auto;
+    width: 25%;
+    padding-right: 0;
+
+    @include media-breakpoint-down(lg) {
+      width: 30%;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 35%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    > a {
+      display: inline-block;
+      text-decoration: none;
+
+      &:not(.btn) {
+        font-weight: 600;
+
+        &:hover {
+          color: $brand-secondary;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .tab-content-wrapper {
+    background: var(--bs-white);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    @include media-breakpoint-down(sm) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      margin-top: 0;
+    }
+
+    // Ensure links inside tab content are clickable
+    a {
+      cursor: pointer;
+      pointer-events: auto;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    border: none;
+    width: 100%;
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: row;
+      overflow-x: auto;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .nav-item {
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      border-top-right-radius: 0;
+      .nav-link {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 0 0.5rem;
+        padding: 1rem 4rem 0.5rem 2rem;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+        white-space: normal;
+        color: $brand-navy;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        border-top-right-radius: 0;
+        border: 0;
+        background-color: $brand-lighter-blue;
+        width: 100%;
+        cursor: pointer;
+        pointer-events: auto;
+
+        @include media-breakpoint-down(lg) {
+          padding: 0.75rem 3rem 0.5rem 1.5rem;
+          font-size: 20px;
+        }
+
+        @include media-breakpoint-down(md) {
+          padding: 0.5rem 2rem 0.5rem 1rem;
+          font-size: 18px;
+        }
+
+        @include media-breakpoint-down(sm) {
+          padding: 0.5rem 1rem;
+          font-size: 14px;
+          min-width: 120px;
+          flex-shrink: 0;
+          border-radius: 0;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          text-align: center;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          margin-bottom: 0;
+        }
+
+        &:hover {
+          background-color: mix(black, $brand-secondary, 20%);
+          color: $brand-white;
+        }
+
+        &.active {
+          color: $brand-navy;
+          background-color: $brand-white;
+        }
+
+        .tab-icon {
+          grid-row: 1 / -1;
+          grid-column: 1;
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+
+        svg {
+          position: relative;
+          display: inline-block;
+          top: 3px;
+          margin-left: 0.5rem;
+        }
+
+        .desc {
+          display: block;
+          grid-column: 2;
+          margin-top: 0.5rem;
+          font-size: var(--wp--preset--font-size--body-small);
+          font-weight: 400;
+
+          @include media-breakpoint-down(md) {
+            font-size: 12px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            display: none;
+          }
+        }
+
+        .tab-icon {
+          @include media-breakpoint-down(sm) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-style-horizontal-tabs {
+    .nav-tabs-wrapper {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+    .nav.nav-tabs {
+      flex-direction: row;
+      margin: 0 calc(var(--bs-gutter-x) / -2);
+
+      .nav-item {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-left-radius: 0;
+
+        .nav-link {
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    .tab-content-wrapper {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .block--tabs {
+    .nav-tabs {
+      border: none;
+    }
+
+    // .acf-innerblocks-container {
+    // 	position: unset;
+
+    // 	.wp-block-wmx-tab-panel {
+    // 		position: unset;
+    // 		overflow: visible;
+    // 	}
+
+    // 	.block--tab-panel {
+
+    // 		&::before {
+    // 			content: attr(data-title);
+    // 			position: absolute;
+    // 			left: -20%;
+    // 			top: 0;
+    // 			font-weight: 700;
+    // 		}
+    // 	}
+    // }
+  }
+}

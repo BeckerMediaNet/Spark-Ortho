@@ -1,0 +1,5 @@
+@import '../../../src/scss/bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+.block--stat {
+	white-space: nowrap;
+}

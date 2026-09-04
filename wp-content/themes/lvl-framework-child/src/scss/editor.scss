@@ -1,0 +1,28 @@
+// BOOTSTRAP ESSENTIALS
+@import "bare-bs-necessities";
+@import 'bootstrap.scss';
+@import 'style.scss';
+
+.editor-styles-wrapper {
+	//@import 'components/_utility.scss';
+	//@import "components/typography";
+
+	:where(.wp-site-blocks) {
+
+		> * {
+			margin-block-start: 0;
+			margin-block-end: 0;
+		}
+	}
+
+	:where(.is-layout-flow) {
+
+		.acf-innerblocks-container {
+
+			> * {
+				margin-block-start: var(--wp--style--block-gap);
+				margin-block-end: 0;
+			}
+		}
+	}
+}
