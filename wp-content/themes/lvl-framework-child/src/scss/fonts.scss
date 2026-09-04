@@ -1,0 +1,56 @@
+@mixin font-face(
+  $family,
+  $file,
+  $weight: 'normal',
+  $style: 'normal',
+  $woff2: true
+) {
+  @font-face {
+    font-display: swap;
+    font-family: $family;
+    font-style: unquote($style);
+    font-weight: unquote($weight);
+    src:
+            #{if($woff2,
+              'url(\'../fonts/#{$file}.woff2\') format(\'woff2\'), url(\'../fonts/#{$file}.woff\') format(\'woff\')',
+              'url(\'../fonts/#{$file}.woff\') format(\'woff\')'
+            )},
+            #{if($woff2,
+              'url(\'../../fonts/#{$file}.woff2\') format(\'woff2\'), url(\'../../fonts/#{$file}.woff\') format(\'woff\')',
+              'url(\'../../fonts/#{$file}.woff\') format(\'woff\')'
+            )};
+  }
+}
+
+
+/*
+//Roboto
+@include font-face('Roboto', 'Roboto-Regular', '400', 'normal');
+@include font-face('Roboto', 'Roboto-Italic', '400', 'italic');
+@include font-face('Roboto', 'Roboto-Medium', '600', 'normal');
+@include font-face('Roboto', 'Roboto-MediumItalic', '600', 'italic');
+@include font-face('Roboto', 'Roboto-Bold', '800', 'normal');
+@include font-face('Roboto', 'Roboto-BoldItalic', '800', 'italic');
+
+//Libre Franklin
+@include font-face('LibreFranklin', 'libre-franklin-100', '100', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-100italic', '100', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-200', '200', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-200italic', '200', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-300', '300', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-300italic', '300', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-regular', '400', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-italic', '400', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-500', '500', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-500italic', '500', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-600', '600', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-600italic', '600', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-700', '700', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-700italic', '700', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-800', '800', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-800italic', '800', 'italic');
+@include font-face('LibreFranklin', 'libre-franklin-900', '900', 'normal');
+@include font-face('LibreFranklin', 'libre-franklin-900italic', '900', 'italic');
+
+//American Typewriter
+@include font-face('AmericanTypewriter', 'american-typewriter', '400', 'normal');*/

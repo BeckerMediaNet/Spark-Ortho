@@ -1,0 +1,11 @@
+#header {
+  .progress-bar-container {
+    width: 100%;
+
+    .progress-bar {
+      height: 3px;
+      background: $brand-red;
+      width: 0%;
+    }
+  }
+}

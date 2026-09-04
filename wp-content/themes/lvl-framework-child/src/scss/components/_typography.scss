@@ -1,0 +1,165 @@
+// Generate heading classes from theme.json
+[data-bs-theme="light"] {
+  color: $brand-black;
+}
+
+[data-bs-theme="dark"] {
+  color: $brand-white;
+
+  a {
+    color: inherit;
+  }
+}
+
+// Dark palette backgrounds — force light text
+// Luminance threshold <125 using (R*299 + G*587 + B*114) / 1000
+.has-dark-gray-background-color,
+.has-darkest-blue-background-color,
+.has-dark-blue-background-color,
+.has-gray-background-color,
+.has-blue-background-color,
+.has-black-background-color {
+  color: $brand-off-white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $brand-off-white;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+// Light palette backgrounds — force dark text
+.has-primary-background-color,
+.has-secondary-background-color,
+.has-light-blue-background-color,
+.has-lighter-blue-background-color,
+.has-lightest-blue-background-color,
+.has-off-white-background-color,
+.has-light-orange-background-color,
+.has-lime-green-background-color,
+.has-pink-background-color,
+.has-white-background-color {
+  color: $brand-dark-gray;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $brand-navy;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@each $heading in $headings {
+  #{nth($heading,1)},
+  .#{nth($heading,1)} {
+    font-family: #{nth($heading, 2)};
+    font-size: #{nth($heading, 3)};
+    font-weight: #{nth($heading, 4)};
+    line-height: #{nth($heading, 5)};
+    color: #{nth($heading, 6)};
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+    &:not(:first-child) {
+      margin-block-start: var(--wp--style--block-gap);
+    }
+  }
+}
+
+[class*="has-heading-font-family"] {
+  font-weight: 600;
+}
+
+p {
+  &.collapse-mobile {
+    &:not(.show) {
+      display: -webkit-box;
+      height: 0;
+      min-height: calc(7em * 1.5);
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @include media-breakpoint-up(sm) {
+        display: block;
+        height: auto;
+        -webkit-line-clamp: initial;
+      }
+    }
+
+    + .collapse-mobile-btn {
+      position: relative;
+      display: inline-flex;
+      color: inherit;
+
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
+
+      &::after {
+        position: relative;
+        display: inline-block;
+        top: 1px;
+        margin-left: 0.25rem;
+      }
+
+      &[aria-expanded="false"] {
+        &::before {
+          content: "Read More";
+        }
+
+        &::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23D13238"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>');
+        }
+      }
+
+      &[aria-expanded="true"] {
+        &::before {
+          content: "Read Less";
+        }
+
+        &::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23D13238"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg>');
+        }
+      }
+    }
+  }
+}
+
+a {
+  color: $brand-navy;
+  text-decoration: underline;
+
+  &:hover {
+    color: $brand-red;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $brand-secondary;
+    text-decoration: none;
+  }
+
+  // &.search-link {
+  // 	display: inline-flex;
+  // 	align-items: center;
+  // 	gap: .25rem;
+  // }
+}
+
+.has-background {
+  a {
+    color: inherit;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+.has-h-1-font-size, .has-h-2-font-size, .has-h-3-font-size, .has-h-4-font-size, .has-h-5-font-size, .has-h-6-font-size {
+  line-height: 1.2;
+}

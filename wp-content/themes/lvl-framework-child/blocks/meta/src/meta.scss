@@ -1,0 +1,36 @@
+@import '../../../src/scss/bare-bs-necessities'; // required in order to use our other variables, mixins, etc.
+
+.block--meta {
+
+	.meta-row {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: 1rem;
+
+		.avatar-wrapper {
+			flex: 0 1 fit-content;
+
+			.avatar {
+				height: 96px;
+				width: 96px;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				object-position: center;
+				border: 1px solid $brand-secondary;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	a {
+		color: var(--bs-body-color) !important;
+	}
+}
+
+.editor-styles-wrapper {
+
+	.block--meta {
+		margin-bottom: 1rem;
+	}
+}

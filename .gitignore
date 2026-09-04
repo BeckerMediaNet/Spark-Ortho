@@ -8,5 +8,8 @@ _wpeprivate/
 .DS_Store
 *.log
 
+# Node dependencies
+node_modules/
+
 # Editor backup files created during this project's CSS cleanup
 *.bak

@@ -1,0 +1,19 @@
+// BOOTSTRAP FUNCTIONS
+@import "~bootstrap/scss/functions";
+
+// CLIENT SPECIFIC DEFAULT OVERRIDES
+@import 'branding';
+
+// CORE
+@import '../../../lvl-framework/src/scss/components/house-mixins'; // parent level mixins
+//@import '/components/house-mixins'; // ad hoc child level mixins
+
+// BOOTSTRAP CONFIGURATION
+//@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+// BOOTSTRAP ESSENTIALS
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";

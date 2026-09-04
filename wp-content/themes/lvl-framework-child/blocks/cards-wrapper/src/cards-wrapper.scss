@@ -1,0 +1,103 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--cards-wrapper {
+  --block-cards-wrapper-bullet: transparent;
+  --block-cards-wrapper-bullet-active: currentColor;
+  --block-cards-wrapper-bullet-border: currentColor;
+  --block-cards-wrapper-bullet-size: 12px;
+  --block-cards-wrapper-bullet-spacing: 1rem;
+
+  --card-count: 4;
+
+  @include media-breakpoint-down(lg) {
+    --card-count: 2 !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    --card-count: 1 !important;
+  }
+
+  &:not([data-mobile="slider"]) {
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--wp--style--block-gap);
+
+      @include media-breakpoint-down(lg) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .cards {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--wp--style--block-gap) + 20px);
+    }
+  }
+
+  .swiper {
+    margin-left: calc(var(--wp--style--block-gap) / -2);
+    margin-right: calc(var(--wp--style--block-gap) / -2);
+    padding: calc(var(--wp--style--block-gap) / 2);
+  }
+
+  .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--block-cards-wrapper-bullet-spacing);
+    margin-top: 1rem;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    .swiper-pagination-bullet {
+      position: relative;
+      display: inline-block;
+      flex: 0 0 var(--block-cards-wrapper-bullet-size);
+      height: var(--block-cards-wrapper-bullet-size);
+      width: var(--block-cards-wrapper-bullet-size);
+      background-color: var(--block-cards-wrapper-bullet);
+      border: 1px solid var(--block-cards-wrapper-bullet-border);
+      border-radius: 50%;
+
+      &:hover,
+      &-active {
+        background-color: var(--block-cards-wrapper-bullet-active);
+      }
+
+      &::after {
+        // accessibility interaction spacing
+        content: "";
+        display: block;
+        height: 22px;
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        top: -9px;
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .block--cards-wrapper {
+    .cards {
+      display: block;
+
+      > .acf-innerblocks-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(var(--wp--style--block-gap) + 20px);
+      }
+    }
+
+    .swiper,
+    .swiper-pagination {
+      display: none;
+    }
+  }
+}

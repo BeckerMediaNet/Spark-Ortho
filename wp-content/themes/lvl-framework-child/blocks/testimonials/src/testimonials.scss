@@ -1,0 +1,344 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--testimonials {
+  position: relative;
+  left: calc((100vw - 100%) / -2);
+  width: 100vw;
+  background-clip: content-box;
+  color: inherit;
+
+  // Full width testimonials
+  .testimonials.full-width {
+    position: relative;
+    left: calc((100vw - 100%) / -2);
+    width: 100vw;
+    padding-left: calc((100vw - 100%) / 2);
+    padding-right: calc((100vw - 100%) / 2);
+
+    @include media-breakpoint-down(md) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  // Color classes for "Display All" testimonials
+  .bg-orange {
+    background-color: $brand-secondary !important;
+    border-radius: 12px !important; // Simple radius for "Display All" mode
+  }
+
+  .bg-primary {
+    background-color: $brand-red !important;
+    border-radius: 12px !important; // Simple radius for "Display All" mode
+  }
+
+  .bg-lime-green {
+    background-color: $brand-secondary !important;
+    border-radius: 12px !important; // Simple radius for "Display All" mode
+  }
+
+  // CSS Grid layout for "Display All" mode - replacing Bootstrap row/flex
+  .testimonials.testimonials-grid {
+    // Default: 1 column on small screens (sm)
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    // 2 columns on medium screens (md breakpoint)
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // 3 columns on large screens (lg breakpoint)
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // Ensure grid items don't have flex or Bootstrap styling conflicts
+    .testimonial--static {
+      margin: 0;
+      width: auto;
+      flex: none;
+      max-width: none;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    padding: 0 9px;
+    overflow-x: clip;
+    overflow-y: visible;
+
+    @include media-breakpoint-down(md) {
+      width: calc(100vw - var(--bs-gutter-x) / 2);
+      overflow: visible;
+    }
+
+    .swiper-wrapper {
+      height: auto;
+      // left: -9px;
+    }
+  }
+
+  .swiper-slide {
+    height: initial;
+    align-self: stretch;
+    opacity: 1;
+  }
+
+  .testimonial,
+  .testimonial--static {
+    position: relative;
+    max-width: 100vw;
+    opacity: 1;
+    border-radius: 8px 8px 142px 142px; // Distinctive radius for slider and ≤3 static
+
+    &:nth-child(3n + 1) {
+      background-color: $brand-red;
+    }
+
+    &:nth-child(3n + 2) {
+      background-color: $brand-secondary;
+    }
+
+    &:nth-child(3n + 3) {
+      background-color: $brand-primary;
+    }
+
+    a {
+      text-decoration: none;
+      outline: 2px solid transparent;
+      transition: outline-color 0.25s ease;
+
+      &:hover,
+      &:focus {
+        outline-color: currentColor;
+      }
+    }
+
+    blockquote {
+      position: relative;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    figure {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    figcaption {
+      padding: 0;
+      text-align: center;
+
+      .author {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .title {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .location {
+        display: block;
+      }
+    }
+  }
+
+  .testimonials--navigation {
+    width: 100%;
+    position: relative;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .navigation-buttons-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: $brand-red;
+      padding: 8px 15px;
+      border-radius: 48px;
+
+      .drag-text {
+        font-weight: 700;
+        color: $brand-navy;
+      }
+
+      button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: $brand-navy;
+
+        &:active,
+        &:focus {
+          outline: 2px solid $brand-navy;
+        }
+      }
+    }
+  }
+
+  .swiper-button {
+    position: relative;
+    transform: initial;
+    height: min-content;
+    margin-top: 0;
+
+    &.swiper-button-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    > svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  // CSS Grid for static testimonials (3 or fewer) - same responsive pattern as "Display All"
+  .testimonials.testimonials-static-grid {
+    // Default: 1 column on small screens (sm)
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+
+    // 2 columns on medium screens (md breakpoint)
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // 3 columns on large screens (lg breakpoint)
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    // Ensure grid items don't have flex or Bootstrap styling conflicts
+    .testimonial--static {
+      margin: 0;
+      width: auto;
+      flex: none;
+      max-width: none;
+    }
+  }
+
+  .swiper-pagination {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 0;
+    order: 1;
+
+    @include media-breakpoint-up(md) {
+      order: 0;
+    }
+
+    .swiper-pagination-bullet {
+      display: inline-block;
+      flex: 0 0 11px;
+      height: 11px;
+      width: 11px;
+      border-radius: 50%;
+
+      &::after {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .wp-block-lvl-testimonials {
+    margin-block-end: -3rem !important;
+    background-color: transparent !important;
+    color: inherit !important;
+
+    .block--testimonials {
+      left: 0;
+      width: var(--editor-width);
+      //   margin-left: calc((var(--editor-width) - 100%) / -2);
+      padding-bottom: 3rem;
+      color: inherit;
+      pointer-events: none;
+
+      &::before {
+        bottom: 3rem;
+        height: calc(100% - 300px - 3rem);
+      }
+
+      .testimonials--navigation {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .swiper {
+        width: calc(
+          var(--editor-width) - ((var(--editor-width) - 100%) / 2 - 24px)
+        );
+        margin-left: -24px !important;
+      }
+    }
+  }
+
+  // Testimonials pagination styles
+  .testimonials-pagination {
+    text-align: center;
+
+    .page-numbers {
+      display: inline-flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.5rem;
+
+      li {
+        margin: 0;
+      }
+
+      a,
+      .current {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        color: $brand-navy;
+        background-color: transparent;
+
+        &:hover {
+          background-color: $brand-red;
+          border-color: $brand-secondary;
+        }
+      }
+
+      .current {
+        background-color: $brand-secondary;
+        color: $brand-dark-gray;
+        border-color: $brand-secondary;
+      }
+
+      .prev,
+      .next {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

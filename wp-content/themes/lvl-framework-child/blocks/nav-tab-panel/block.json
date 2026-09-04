@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "lvl/nav-tab-panel",
 	"title": "Nav Tab Panel",
 	"version": "1.0.0",

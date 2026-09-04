@@ -1,0 +1,13 @@
+node_modules
+.sass-cache
+.DS_Store
+!index.php
+dist
+#dist/js/*
+#dist/css/*
+#dist/svg/*
+#!dist/css/login.css
+# package-lock.json
+local-xdebuginfo.php
+mix-manifest.json
+/lib/_experimental/

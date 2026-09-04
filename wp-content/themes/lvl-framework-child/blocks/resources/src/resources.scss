@@ -1,0 +1,256 @@
+@import "../../../src/scss/bare-bs-necessities"; // required in order to use our other variables, mixins, etc.
+
+.block--resources {
+  .resources {
+    .filter-bar {
+      .dropdown-toggle {
+        position: relative;
+        width: 100%;
+        min-width: 250px;
+        padding: 0.75rem;
+        background-color: $brand-white;
+        border: 1px solid $brand-secondary;
+        border-radius: 0;
+        font-size: 1rem;
+        line-height: inherit;
+        text-align: left;
+
+        &::after {
+          content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none"><path d="M13.5 4L7.5 10L1.5 4" stroke="%23071C2C" stroke-width="2"/></svg>');
+          position: absolute;
+          right: 0.75rem;
+          top: 50%;
+          border: none;
+          transform: translateY(-50%);
+        }
+
+        &[aria-expanded="true"] {
+          &::after {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+      }
+
+      .dropdown-menu {
+        width: 100%;
+        margin-top: 0;
+        border: 1px solid $brand-secondary;
+        border-top: none;
+        border-radius: 0;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: $brand-white;
+        border: 1px solid $brand-secondary;
+        border-radius: 0;
+        color: inherit;
+        text-align: left;
+        line-height: inherit;
+      }
+    }
+
+    .btn-filter {
+      display: inline-flex;
+      gap: 0;
+      align-items: center;
+      min-width: 0px;
+      margin: 0.5rem 0.5rem 0 0;
+      padding: 0.45rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      background-color: $brand-secondary;
+      color: $brand-white;
+      align-items: flex-start;
+
+      &::after {
+        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" fill="white"/></svg>');
+        display: block;
+        height: 1rem;
+        width: 1rem;
+        margin-left: 0.5rem;
+        padding: 2px;
+      }
+    }
+
+    .filter-reset {
+      &::after {
+        display: none;
+      }
+    }
+
+    .results {
+      --card-count: 3;
+
+      @include media-breakpoint-down(lg) {
+        --card-count: 2 !important;
+      }
+
+      @include media-breakpoint-down(sm) {
+        --card-count: 1 !important;
+      }
+
+      .resources-target {
+        display: grid;
+        grid-template-columns: repeat(var(--card-count), 1fr);
+        grid-auto-flow: row;
+        gap: 2rem;
+
+        .no-results {
+          grid-column-start: 1;
+          grid-column-end: 4;
+        }
+      }
+    }
+
+    .resource {
+      flex: 0 0 100%;
+      align-self: stretch;
+      height: auto !important;
+
+      @include media-breakpoint-up(md) {
+        flex: 0 0 50%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        flex: 0 0 33.333%;
+      }
+
+      .card {
+        height: 100%;
+        margin-top: 0;
+        padding: 0;
+        background-color: var(--bs-white);
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px 0px rgba($brand-black, 0.2);
+        overflow: hidden;
+        transform: scale(1);
+        transition: transform 0.25s ease-in-out;
+
+        &.linked {
+          &:hover,
+          &:focus-within {
+            cursor: pointer;
+            transform: scale(1.025);
+          }
+
+          &:focus-within {
+            // outline: 2px solid $brand-pms-108-16;
+          }
+
+          a {
+            text-decoration: none;
+          }
+        }
+
+        .wp-block-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          aspect-ratio: 1;
+          width: 100%;
+          overflow: hidden;
+          border-bottom: 1px solid $brand-secondary;
+          min-height: 250px;
+
+          img:not([src*="svg"]) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%;
+          }
+
+          img.default-post-image {
+            object-position: center;
+          }
+        }
+
+        .cats {
+          // font-weight: 700;
+        }
+
+        .date {
+          text-transform: uppercase;
+          // font-size: .8rem;
+          // color: rgba($brand-black, .6);
+        }
+
+        .excerpt {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+
+        a {
+          &.visually-hidden-focusable {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &:focus {
+              width: 100%;
+              padding: 0.25rem 0.5rem;
+              background-color: $brand-secondary;
+              color: $brand-white;
+              text-align: center;
+              box-shadow: none;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    .spinner {
+      color: inherit;
+    }
+
+    .load-more {
+      display: none;
+    }
+
+    .pagination {
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+
+      .page-link {
+        padding: 0;
+        color: inherit;
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+          // color: $brand-pms-646;
+          text-decoration: underline;
+        }
+
+        &.active {
+          font-weight: bold;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .wp-block {
+    .wp-block-lvl-resources {
+    }
+
+    .block--resources {
+      .resource {
+        pointer-events: none;
+      }
+
+      .spinner {
+        display: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@mixin content-columns($columns) {
+	@for $i from 1 through $columns {
+  
+	  .content-columns-#{$i} {
+		@if ($i > 4) {
+		  column-count: $i - 3;
+		} @else {
+		  column-count: 1;
+		}
+  
+		@if ($i > 3) {
+		  @include media-breakpoint-up(sm) {
+			column-count: $i - 2;
+		  }
+		}
+  
+		@if ($i > 2) {
+		  @include media-breakpoint-up(md) {
+			column-count: $i - 1;
+		  }
+		}
+  
+		@include media-breakpoint-up(lg) {
+		  column-count: $i;
+		}
+	  }
+	}
+  }
+  
+  // Create column-count utility classes
+  $breakpoints: sm, md, lg, xl, xxl;
+  $columns: 1, 2, 3, 4;
+  
+  @each $breakpoint, $min-width in $breakpoints {
+	  @each $column in $columns {
+		  @include media-breakpoint-up($breakpoint) {
+			  .column-count-#{$breakpoint}-#{$column} {
+				  column-count: $column !important;
+			  }
+		  }
+	  }
+  }
+  
+  @each $column in $columns {
+	  .column-count-#{$column} {
+		  column-count: $column !important;
+	  }
+  }
+  
+  // loop through list columns and create classes
+  @include content-columns(6);
+  
+  [class*=content-columns-] {
+	column-gap: calc(var(--bs-gutter-x) + 1rem);
+  
+	> li {
+	  break-inside: avoid;
+	}
+  }
+
+  @mixin container-breakpoint-up($name) {
+	$size: map-get($container-max-widths, $name);
+
+	@if $size {
+
+		@container (min-width: #{$size}) {
+			@content;
+		}
+	}
+
+	@else {
+		@content;
+	}
+}
+
+@mixin container-breakpoint-down($name) {
+	$size: map-get($container-max-widths, $name);
+
+	@if $size {
+
+		@container (max-width: #{$size - 0.02}) {
+			@content;
+		}
+	}
+
+	@else {
+		@content;
+	}
+}

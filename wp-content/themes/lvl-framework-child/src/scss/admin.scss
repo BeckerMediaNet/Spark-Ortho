@@ -1,0 +1,57 @@
+// ADMIN STYLES
+
+.appearance_page_theme-color-options {
+  @import "bootstrap.scss";
+}
+
+.acf-field {
+  &:has(.color-picker) {
+    .acf-radio-list {
+      &:focus-within {
+        outline: none;
+        border-color: transparent;
+      }
+    }
+
+    label {
+      cursor: pointer;
+
+      &.selected {
+        .color-picker {
+          outline: 3px solid $brand-secondary;
+          outline-offset: 1px;
+        }
+      }
+    }
+
+    input {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+      overflow: hidden;
+    }
+
+    .color-picker {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      width: 24px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      font-size: 0;
+
+      @each $color-slug, $color-value in $wpPalette {
+        &.has-#{$color-slug}-background-color {
+          background-color: $color-value;
+        }
+      }
+    }
+  }
+}

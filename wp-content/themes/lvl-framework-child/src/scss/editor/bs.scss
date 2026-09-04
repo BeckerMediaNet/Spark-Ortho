@@ -1,0 +1,228 @@
+@import "../bare-bs-necessities";
+@import '../components/_utility.scss';
+
+body {
+
+	// Adding a border to the editor and fixing height and width
+	.editor-styles-wrapper {
+
+		&:not(.wp-block-widget-area__inner-blocks):not(.block-editor-iframe__body) {
+			height: auto !important;
+			padding-bottom: 1rem;
+			border: 20px solid #DDD;
+			outline: 1px solid #909090;
+			outline-offset: -20px;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		:where(.wp-site-blocks) {
+
+			> * {
+				margin-block-start: 0;
+				margin-block-end: 0;
+			}
+		}
+
+		:where(.is-layout-flow) {
+
+			.acf-innerblocks-container {
+	
+				> * {
+					margin-block-start: var(--wp--style--block-gap);
+					margin-block-end: 0;
+
+					&:first-child {
+						margin-block-start: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.editor-visual-editor {
+
+		&.is-resizable {
+			max-height: none;
+			padding: 20px;
+
+			&:not(.is-iframed) {
+
+				.editor-resizable-editor {
+					height: auto !important;
+				}
+			}
+
+			.editor-resizable-editor {
+
+				.editor-styles-wrapper {
+					border: none;
+					outline-offset: 0;
+				}
+			}
+		}
+
+		// .editor-resizable-editor {
+
+		// 	> div {
+		// 		height: auto !important;
+		// 	}
+		// }
+	}
+
+	#widgets-editor {
+
+		.wp-block[data-type="core/widget-area"] {
+			max-width: 100%;
+			margin-bottom: 1rem;
+
+			.block-editor-inner-blocks {
+				max-width: 100%;
+			}
+
+			[data-widget-area-id*="mega-menu"] {
+
+				> .block-editor-block-list__layout {
+					
+					> .wp-block-columns {
+						margin: auto;
+
+						.wp-block-column {
+							padding: calc(var(--bs-gutter-x) / 1);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.editor-styles-wrapper {
+	@import '../bootstrap.scss';
+
+	padding: 20px 20px 60px;
+	overflow: clip;
+	overflow-clip-margin: content-box;
+
+	.editor-visual-editor__post-title-wrapper {
+		margin-bottom: 24px;
+		padding-bottom: 24px;
+		border-bottom: 1px solid #909090;
+
+		.editor-post-title {
+			margin: 0;
+		}
+
+	}
+
+	.is-root-container {
+
+		.is-reusable {
+			margin-top: 0 !important;
+		}
+	}
+
+	.block-editor-button-block-appender {
+		color: inherit;
+		box-shadow: inset 0 0 0 1px currentColor;
+	}
+
+	.block-editor-inserter__toggle,
+	.block-list-appender__toggle {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		
+		&::before {
+			content: attr(aria-label);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #777777;
+			width: max-content;
+			z-index: 99;
+			padding: 0 .5em;
+			line-height: 1;
+			transform: translateX(-100%);
+			height: 100%;
+			display: flex;
+			align-items: center;
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+		}
+	}
+
+	// BLOCK HINTS
+	.lvl-block-hints {
+
+		.block-editor-block-list__block::before {
+			content: attr(data-title);
+			position: relative;
+			display: block;
+			border: 1px solid;
+			height: min-content;
+			width: fit-content;
+			padding: 1px 4px;
+			font-size: 12px;
+			color: var(--bs-gray-700);
+			background: var(--bs-light);
+			white-space: nowrap;
+			overflow: visible;
+			font-family: var(--bs-font-sans-serif);
+			font-weight: initial;
+			text-transform: uppercase;
+			line-height: 1;
+			box-shadow: 1px 1px 0 0px var(--bs-primary);
+			margin-bottom: 3px;
+		}
+
+		.block-editor-block-parent-selector .components-button.has-icon::after {
+			content: attr(aria-label);
+			position: absolute;
+			display: block;
+			white-space: nowrap;
+			top: 0px;
+			right: -1px;
+			transform: translateY(-100%);
+			background: white;
+			padding: 3px;
+			border: 1px solid;
+		}
+	}
+
+	//BLOCK BORDERS
+	.lvl-block-border {
+
+		.block[data-bs-theme="dark"] {
+
+			.block-editor-block-list__block.wp-block {
+				outline: 1px dashed rgba(255, 255, 255, .5);
+			}
+		}
+
+		.block-editor-block-list__block.wp-block {
+			outline: 1px dashed rgba(0, 0, 0, .2);
+		}
+	}
+
+	.block[data-bs-theme="dark"] {
+
+		.block-editor-block-list__block.wp-block {
+
+			&:hover {
+				outline: 1px dashed rgba(255, 255, 255, .8);
+			}
+		}
+	}
+
+	.block-editor-block-list__block.wp-block {
+		outline: 1px dashed rgba(255, 255, 255, 0);
+		transition: outline .3s ease-out .15s;
+
+		&:hover {
+			outline: 1px dashed rgba(0, 0, 0, .5);
+			transition: outline .3s ease-out;
+		}
+	}
+}
