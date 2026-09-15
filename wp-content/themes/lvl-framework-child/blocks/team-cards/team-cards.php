@@ -46,6 +46,33 @@ $render = function ($block, $is_preview, $content) {
 	if ($display_mode === 'all') {
 		require_once get_stylesheet_directory() . '/blocks/team-cards/ajax.php';
 
+		// Server-render page 1 for SEO — all doctor names + bio links appear in raw HTML
+		$ssr_args = [
+			'post_type'      => 'team',
+			'post_status'    => 'publish',
+			'posts_per_page' => $per_page,
+			'paged'          => 1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		];
+		if ($featured_id) {
+			$ssr_args['post__not_in'] = [$featured_id];
+		}
+		$ssr_query    = new WP_Query($ssr_args);
+		$ssr_has_more = $ssr_query->max_num_pages > 1;
+		$ssr_html     = '';
+		if ($featured_id) {
+			$featured_post = get_post($featured_id);
+			if ($featured_post && $featured_post->post_status === 'publish') {
+				$ssr_html = render_team_card($featured_id, $image_fit);
+			}
+		}
+		while ($ssr_query->have_posts()) {
+			$ssr_query->the_post();
+			$ssr_html .= render_team_card(get_the_ID(), $image_fit);
+		}
+		wp_reset_postdata();
+
 		ob_start(); ?>
 
 		<div class="team-cards-wrapper">
@@ -105,7 +132,12 @@ $render = function ($block, $is_preview, $content) {
 				</div>
 			<?php endif; ?>
 
-			<div class="team-cards-flex d-flex flex-wrap justify-content-center gap-4"></div>
+			<div class="team-cards-flex d-flex flex-wrap justify-content-center gap-4"
+				data-ssr="true"
+				data-has-more="<?php echo $ssr_has_more ? 'true' : 'false'; ?>"
+				data-next-page="2">
+				<?php echo $ssr_html; ?>
+			</div>
 
 			<div class="team-spinner text-center py-5 d-none">
 				<div class="spinner-border" role="status">
@@ -114,7 +146,7 @@ $render = function ($block, $is_preview, $content) {
 			</div>
 
 			<div class="text-center mt-4">
-				<button class="btn btn-secondary load-more-team d-none">Load More</button>
+				<button class="btn btn-secondary load-more-team <?php echo $ssr_has_more ? '' : 'd-none'; ?>">Load More</button>
 			</div>
 		</div>
 
