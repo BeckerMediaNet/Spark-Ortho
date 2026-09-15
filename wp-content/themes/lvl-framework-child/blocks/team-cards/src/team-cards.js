@@ -74,7 +74,16 @@ function initializeTeamSliders() {
     }
 
     init() {
-      this.loadTeam(false);
+      // Skip the initial AJAX fetch when PHP already server-rendered the cards (SSR mode).
+      // Filters and Load More still fire AJAX normally after this point.
+      const isSsr = this.$grid.data("ssr") === true;
+      if (isSsr) {
+        if (this.$grid.data("has-more") === true) {
+          this.$loadMoreBtn.removeClass("d-none");
+        }
+      } else {
+        this.loadTeam(false);
+      }
 
       // Filter submit button
       this.$block.find(".filter-submit").on("click", (e) => {
