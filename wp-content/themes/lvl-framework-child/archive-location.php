@@ -127,7 +127,7 @@ if (!empty($zip) && isset($user_coords) && $user_coords) {
                 <div class="d-flex justify-content-center align-items-center flex-column">
                     <p class="text-center"><?php echo (!empty($description) ? $description : ''); ?></p>
                     <div class="wp-block-button is-style-btn-red mb-4">
-                        <a class="wp-element-button" href="/spark-smile-assessment/">Book your free Spark Smile Assessment</a>
+                        <a class="wp-element-button" href="https://app.nexhealth.com/appt/cdm?lid=196724,%20196715,%20196712,%20196726,%20196717,%20196722,196713,%20196725,%20196727">Book your free Spark Smile Assessment</a>
                     </div>
                     <h2 class="h4 mb-3">Find a location</h2>
                     <form class="location-search-form" id="locationSearchForm" method="get" action="">
